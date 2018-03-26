@@ -97,7 +97,6 @@ export default class SearchPage extends Component<{}> {
                         onChange={this._onSearchTextChanged}
                     />
                     <Button
-                        onPress={() => {}}
                         color='#48BBEC'
                         title='Go'
                         onPress={this._onSearchPressed}
