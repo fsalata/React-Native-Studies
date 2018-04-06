@@ -5,5 +5,6 @@ export default EStyleSheet.create({
     paddingTop: 40,
     paddingHorizontal: 15,
     paddingBottom: 15,
+    backgroundColor: '#fff',
   },
 });
