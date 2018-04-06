@@ -3,6 +3,7 @@ import { View, Text, AsyncStorage, KeyboardAvoidingView } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 // import { Loading } from '../components/Loading';
+import { Container } from '../components/Container';
 import { LoginInput } from '../components/LoginInput';
 import { Button } from '../components/Button';
 
@@ -83,8 +84,8 @@ class Login extends Component {
 
   render() {
     return (
-      <KeyboardAvoidingView behavior="padding" style={EStyleSheet.value('$mainContainerMargin')}>
-        <View>
+      <Container>
+        <KeyboardAvoidingView behavior="padding">
           <LoginInput
             textValue={this.state.email}
             placeholder="E-mail"
@@ -99,7 +100,7 @@ class Login extends Component {
             extraMarginTop={20}
             errorMessage={this.state.passwordError}
           />
-        </View>
+        </KeyboardAvoidingView>
         <View style={{ marginTop: 40 }}>
           <Button title="LOGIN" onPress={this.LoginHandle} />
           <LoginSeparator />
@@ -122,7 +123,7 @@ class Login extends Component {
             }}
           />
         </View>
-      </KeyboardAvoidingView>
+      </Container>
     );
   }
 }
