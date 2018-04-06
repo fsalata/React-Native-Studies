@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, AsyncStorage } from 'react-native';
+import { View, Text, AsyncStorage, KeyboardAvoidingView } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 // import { Loading } from '../components/Loading';
@@ -83,7 +83,7 @@ class Login extends Component {
 
   render() {
     return (
-      <View style={EStyleSheet.value('$mainContainerMargin')}>
+      <KeyboardAvoidingView behavior="padding" style={EStyleSheet.value('$mainContainerMargin')}>
         <View>
           <LoginInput
             textValue={this.state.email}
@@ -122,7 +122,7 @@ class Login extends Component {
             }}
           />
         </View>
-      </View>
+      </KeyboardAvoidingView>
     );
   }
 }

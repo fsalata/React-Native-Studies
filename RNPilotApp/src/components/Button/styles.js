@@ -6,7 +6,7 @@ export default EStyleSheet.create({
     height: 40,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#3069C5',
+    backgroundColor: '$buttonBackgroundColor',
     borderRadius: 4,
   },
   text: {

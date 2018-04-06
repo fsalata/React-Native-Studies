@@ -10,8 +10,10 @@ const LoginInput = ({
   isSecure,
   errorMessage,
   extraMarginTop,
+  floatingLabel = '',
 }) => (
   <View style={{ marginTop: extraMarginTop }}>
+    {floatingLabel !== '' ? <Text style={styles.label}>{floatingLabel}</Text> : null}
     <View style={styles.container}>
       <TextInput
         value={textValue}

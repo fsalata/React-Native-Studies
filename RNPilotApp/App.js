@@ -1,8 +1,7 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-import Navigator from './src/navigation/routes';
-
 import EStyleSheet from 'react-native-extended-stylesheet';
+
+import Navigator from './src/navigation/routes';
 
 EStyleSheet.build({
   $mainContainerMargin: {
@@ -10,10 +9,12 @@ EStyleSheet.build({
     paddingHorizontal: 15,
     paddingBottom: 15,
   },
+
+  $labelColor: '#333',
+  $buttonBackgroundColor: '#3069C5',
+  $errorLabelColor: '#f00',
 });
 
-export default class App extends React.Component {
-  render() {
-    return <Navigator />;
-  }
-}
+const App = () => <Navigator />;
+
+export default App;
