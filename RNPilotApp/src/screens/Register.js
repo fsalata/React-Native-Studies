@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
+import { View, KeyboardAvoidingView, Platform, ScrollView, AsyncStorage } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 // import { Container } from '../components/Container';
@@ -46,14 +46,123 @@ class Register extends Component {
     });
   };
 
+  isCPFValid = (c) => {
+    if ((c = c.replace(/[^\d]/g, '')).length !== 11) return false;
+
+    if (c === '00000000000') return false;
+
+    let r;
+    let s = 0;
+
+    for (let i = 1; i <= 9; i++) s += parseInt(c[i - 1]) * (11 - i);
+
+    r = (s * 10) % 11;
+
+    if (r === 10 || r === 11) r = 0;
+
+    if (r !== parseInt(c[9])) return false;
+
+    s = 0;
+
+    for (let i = 1; i <= 10; i++) s += parseInt(c[i - 1]) * (12 - i);
+
+    r = (s * 10) % 11;
+
+    if (r === 10 || r === 11) r = 0;
+
+    if (r !== parseInt(c[10])) return false;
+
+    return true;
+  };
+
+  register = async () => {
+    let isValid = true;
+
+    this.setState({
+      nameError: '',
+      emailError: '',
+      passwordError: '',
+      passwordConfirmationError: '',
+      cpfError: '',
+    });
+
+    if (this.state.name === '') {
+      this.setState({ nameError: 'O nome deve ser preenchido' });
+      isValid = false;
+    }
+
+    if (this.state.email === '') {
+      this.setState({ emailError: 'O email deve ser preenchido' });
+      isValid = false;
+    }
+
+    if (this.state.password === '') {
+      this.setState({ passwordError: 'A senha deve ser preenchido' });
+      isValid = false;
+    } else if (this.state.password !== this.state.passwordConfirmation) {
+      this.setState({ passwordConfirmationError: 'As senhas não coincidem' });
+      isValid = false;
+    }
+
+    if (this.state.cpf === '') {
+      this.setState({ cpfError: 'O CPF deve ser preenchido' });
+      isValid = false;
+    } else if (!this.isCPFValid(this.state.cpf)) {
+      this.setState({ cpfError: 'O CPF não é válido' });
+      isValid = false;
+    }
+
+    if (isValid === true) {
+      if (await this.saveUser()) {
+        alert('Usuário Salvo');
+      }
+    }
+  };
+
+  saveUser = async () => {
+    try {
+      const usersList = await AsyncStorage.getItem('ListaUsuarios');
+      let users = usersList === null ? [] : JSON.parse(usersList);
+
+      if (users !== null) {
+        const user = users.find(u => u.cpf.trim() === this.state.cpf.trim());
+
+        if (user) {
+          alert('Usuário já cadastrado');
+          return false;
+        }
+      }
+      const newUser = {
+        name: this.state.name,
+        email: this.state.email,
+        password: this.state.password,
+        cpf: this.state.cpf,
+        userPhoto: this.state.userPhoto,
+      };
+
+      users = [...users, newUser];
+
+      try {
+        AsyncStorage.setItem('ListaUsuarios', JSON.stringify(users));
+      } catch (error) {
+        alert(error);
+        return false;
+      }
+    } catch (error) {
+      alert(error);
+      return false;
+    }
+
+    return true;
+  };
+
   render() {
     return (
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : null}
-        style={EStyleSheet.value('$mainContainerMargin')}
-        keyboardVerticalOffset={80}
+        keyboardVerticalOffset={60}
       >
-        <ScrollView>
+        <ScrollView style={EStyleSheet.value('$mainContainerMargin')}>
           <View
             style={{
               justifyContent: 'center',
@@ -72,9 +181,9 @@ class Register extends Component {
             <CustomInput
               floatingLabel="Nome"
               textValue={this.state.name}
-              onChangeText={text => this.setState({ name: text })}
+              onChangeText={text => this.setState({ name: text, nameError: '' })}
               extraMarginTop={20}
-              errorMessage={this.state.name}
+              errorMessage={this.state.nameError}
             />
             <CustomInput
               floatingLabel="E-mail"
@@ -87,30 +196,37 @@ class Register extends Component {
             <CustomInput
               floatingLabel="Senha"
               textValue={this.state.password}
-              onChangeText={text => this.setState({ password: text })}
+              onChangeText={text => this.setState({ password: text, passwordError: '' })}
               extraMarginTop={20}
+              isSecure
               errorMessage={this.state.passwordError}
             />
             <CustomInput
               floatingLabel="Confirmar senha"
               textValue={this.state.passwordConfirmation}
-              onChangeText={text => this.setState({ passwordConfirmation: text })}
+              isSecure
+              onChangeText={text =>
+                this.setState({ passwordConfirmation: text, passwordConfirmationError: '' })
+              }
               extraMarginTop={20}
               errorMessage={this.state.passwordConfirmationError}
             />
             <CustomMaskedInput
               floatingLabel="CPF"
               textValue={this.state.cpf}
-              onChangeText={text => this.setState({ cpf: text })}
+              onChangeText={(formatted, extracted) =>
+                this.setState({ cpf: extracted, cpfError: '' })
+              }
               mask="[000].[000].[000]-[00]"
               extraMarginTop={20}
               errorMessage={this.state.cpfError}
               keyboardType="numeric"
             />
-            {/* <CustomInput floatingLabel="CPF" extraMarginTop={20} /> */}
-          </View>
 
-          <Button title="CADASTRE-SE" onPress={() => this.props.navigation.navigate('Register')} />
+            <View style={{ marginTop: 20 }}>
+              <Button title="CADASTRE-SE" onPress={this.register} />
+            </View>
+          </View>
         </ScrollView>
       </KeyboardAvoidingView>
     );
