@@ -4,7 +4,7 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 
 // import { Loading } from '../components/Loading';
 import { Container } from '../components/Container';
-import { LoginInput } from '../components/LoginInput';
+import { CustomInput } from '../components/CustomInput';
 import { Button } from '../components/Button';
 
 class Login extends Component {
@@ -86,13 +86,13 @@ class Login extends Component {
     return (
       <Container>
         <KeyboardAvoidingView behavior="padding">
-          <LoginInput
+          <CustomInput
             textValue={this.state.email}
             placeholder="E-mail"
             onChangeText={this.usernameTextChangeHandler}
             errorMessage={this.state.emailError}
           />
-          <LoginInput
+          <CustomInput
             textValue={this.state.password}
             placeholder="Senha"
             onChangeText={this.passwordTextChangeHandler}
@@ -104,24 +104,7 @@ class Login extends Component {
         <View style={{ marginTop: 40 }}>
           <Button title="LOGIN" onPress={this.LoginHandle} />
           <LoginSeparator />
-          <Button
-            title="CADASTRE-SE"
-            onPress={() => {
-              try {
-                AsyncStorage.setItem(
-                  'ListaUsuarios',
-                  JSON.stringify([
-                    {
-                      email: 'bin@bin.com',
-                      password: '123',
-                    },
-                  ]),
-                );
-              } catch (error) {
-                alert(error);
-              }
-            }}
-          />
+          <Button title="CADASTRE-SE" onPress={() => this.props.navigation.navigate('Register')} />
         </View>
       </Container>
     );

@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity } from 'react-native';
 
 import styles from './styles';
 
-const Button = ({ title, onPress }) => (
+const Avatar = ({ title, onPress }) => (
   <TouchableOpacity onPress={onPress}>
     <View style={styles.button}>
       <Text style={styles.text}>{title}</Text>
@@ -11,4 +11,4 @@ const Button = ({ title, onPress }) => (
   </TouchableOpacity>
 );
 
-export default Button;
+export default Avatar;

@@ -3,7 +3,7 @@ import { Text, View, TextInput } from 'react-native';
 
 import styles from './styles';
 
-const LoginInput = ({
+const CustomInput = ({
   textValue,
   placeholder,
   onChangeText,
@@ -28,4 +28,4 @@ const LoginInput = ({
   </View>
 );
 
-export default LoginInput;
+export default CustomInput;

@@ -6,5 +6,6 @@ export default EStyleSheet.create({
     paddingHorizontal: 15,
     paddingBottom: 15,
     backgroundColor: '#fff',
+    flex: 1,
   },
 });

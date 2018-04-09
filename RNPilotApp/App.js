@@ -10,10 +10,14 @@ EStyleSheet.build({
     paddingBottom: 15,
   },
 
+  $defaultElementMargin: 40,
+
   $labelColor: '#333',
   $buttonBackgroundColor: '#3069C5',
   $errorLabelColor: '#f00',
 });
+
+console.disableYellowBox = true;
 
 const App = () => <Navigator />;
 
