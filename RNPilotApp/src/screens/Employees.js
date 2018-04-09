@@ -1,22 +1,15 @@
 import React, { Component } from 'react';
 import { View, Text, Button, AsyncStorage } from 'react-native';
 import { CustomSearch } from '../components/CustomSearch';
-import { NavbarAvatar } from '../components/NavbarAvatar';
 
 class Employees extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      loggedUser: null,
+      loggedUser: '',
     };
   }
-
-  static navigationOptions = {
-    headerRight: <NavbarAvatar />,
-  };
-
-  componentDidMount() {}
 
   render() {
     return (
