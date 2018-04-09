@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { View, KeyboardAvoidingView, Platform, ScrollView, Image } from 'react-native';
+import { View, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 // import { Container } from '../components/Container';
 import { Avatar } from '../components/Avatar';
 import { CustomInput } from '../components/CustomInput';
+import { CustomMaskedInput } from '../components/CustomMaskedInput';
 import { Button } from '../components/Button';
 
 class Register extends Component {
@@ -15,11 +16,13 @@ class Register extends Component {
       userPhoto: '',
       name: '',
       email: '',
-      emailConfirmation: '',
+      password: '',
+      passwordConfirmation: '',
       cpf: '',
       nameError: '',
       emailError: '',
-      emailConfirmationError: '',
+      passwordError: '',
+      passwordConfirmationError: '',
       cpfError: '',
     };
   }
@@ -66,17 +69,45 @@ class Register extends Component {
               paddingBottom: EStyleSheet.value('$defaultElementMargin'),
             }}
           >
-            <CustomInput floatingLabel="Nome" />
+            <CustomInput
+              floatingLabel="Nome"
+              textValue={this.state.name}
+              onChangeText={text => this.setState({ name: text })}
+              extraMarginTop={20}
+              errorMessage={this.state.name}
+            />
             <CustomInput
               floatingLabel="E-mail"
-              textValue={this.state.password}
+              textValue={this.state.email}
               onChangeText={this.emailTextChangeHandler}
               extraMarginTop={20}
+              keyboardType="email-address"
               errorMessage={this.state.emailError}
             />
-            <CustomInput floatingLabel="Senha" extraMarginTop={20} />
-            <CustomInput floatingLabel="Confirmar senha" extraMarginTop={20} />
-            <CustomInput floatingLabel="CPF" extraMarginTop={20} />
+            <CustomInput
+              floatingLabel="Senha"
+              textValue={this.state.password}
+              onChangeText={text => this.setState({ password: text })}
+              extraMarginTop={20}
+              errorMessage={this.state.passwordError}
+            />
+            <CustomInput
+              floatingLabel="Confirmar senha"
+              textValue={this.state.passwordConfirmation}
+              onChangeText={text => this.setState({ passwordConfirmation: text })}
+              extraMarginTop={20}
+              errorMessage={this.state.passwordConfirmationError}
+            />
+            <CustomMaskedInput
+              floatingLabel="CPF"
+              textValue={this.state.cpf}
+              onChangeText={text => this.setState({ cpf: text })}
+              mask="[000].[000].[000]-[00]"
+              extraMarginTop={20}
+              errorMessage={this.state.cpfError}
+              keyboardType="numeric"
+            />
+            {/* <CustomInput floatingLabel="CPF" extraMarginTop={20} /> */}
           </View>
 
           <Button title="CADASTRE-SE" onPress={() => this.props.navigation.navigate('Register')} />

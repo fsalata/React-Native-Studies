@@ -11,6 +11,7 @@ const CustomInput = ({
   errorMessage,
   extraMarginTop,
   floatingLabel = '',
+  keyboardType,
 }) => (
   <View style={{ marginTop: extraMarginTop }}>
     {floatingLabel !== '' ? <Text style={styles.label}>{floatingLabel}</Text> : null}
@@ -22,6 +23,7 @@ const CustomInput = ({
         underlineColorAndroid="transparent"
         style={styles.input}
         secureTextEntry={isSecure}
+        keyboardType={keyboardType}
       />
     </View>
     <Text style={styles.error}>{errorMessage}</Text>
