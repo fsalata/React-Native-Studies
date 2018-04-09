@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Button, AsyncStorage } from 'react-native';
+import { View, Text, Button } from 'react-native';
 import { CustomSearch } from '../components/CustomSearch';
 
 class Employees extends Component {
