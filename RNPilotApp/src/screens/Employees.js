@@ -1,12 +1,32 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Button, AsyncStorage } from 'react-native';
+import { CustomSearch } from '../components/CustomSearch';
+import { NavbarAvatar } from '../components/NavbarAvatar';
 
-export default class Employees extends Component {
+class Employees extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      loggedUser: null,
+    };
+  }
+
+  static navigationOptions = {
+    headerRight: <NavbarAvatar />,
+  };
+
+  componentDidMount() {}
+
   render() {
     return (
       <View>
-        <Text> Lista de empregados </Text>
+        <CustomSearch />
+        <Text>Employees</Text>
+        <Button onPress={() => this.props.navigation.navigate('ToDos')} title="go" />
       </View>
     );
   }
 }
+
+export default Employees;

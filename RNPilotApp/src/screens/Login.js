@@ -34,7 +34,7 @@ class Login extends Component {
       const user = JSON.parse(usersList);
 
       if (user !== null && user !== '') {
-        this.props.navigation.navigate('Employees');
+        this.props.navigation.navigate('Employees', { loggedUser: user });
       }
 
       this.setState({
@@ -91,7 +91,7 @@ class Login extends Component {
               if (user.password === this.state.password) {
                 AsyncStorage.setItem('LoggedUser', JSON.stringify(user));
 
-                this.props.navigation.navigate('Employees');
+                this.props.navigation.navigate('Employees', { loggedUser: user });
               } else {
                 this.setState({ passwordError: 'Senha incorreta' });
               }

@@ -12,6 +12,9 @@ EStyleSheet.build({
 
   $defaultElementMargin: 40,
 
+  $listSeparatorColor: 'rgba(227, 227, 229, 1)',
+  $headerSeparatorColor: '#a7a7a7',
+
   $labelColor: '#333',
   $buttonBackgroundColor: '#3069C5',
   $errorLabelColor: '#f00',
