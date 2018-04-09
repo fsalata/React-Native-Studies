@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, AsyncStorage, KeyboardAvoidingView } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
-// import { Loading } from '../components/Loading';
+import { Loading } from '../components/Loading';
 import { Container } from '../components/Container';
 import { CustomInput } from '../components/CustomInput';
 import { Button } from '../components/Button';
@@ -16,10 +16,34 @@ class Login extends Component {
       password: '',
       emailError: '',
       passwordError: '',
+      isLoading: false,
     };
   }
 
-  componentWillMount() {}
+  componentDidMount() {
+    this.checkLoginStatus();
+  }
+
+  checkLoginStatus = async () => {
+    this.setState({
+      isLoading: true,
+    });
+
+    try {
+      const usersList = await AsyncStorage.getItem('LoggedUser');
+      const user = JSON.parse(usersList);
+
+      if (user !== null && user !== '') {
+        this.props.navigation.navigate('Employees');
+      }
+
+      this.setState({
+        isLoading: false,
+      });
+    } catch (error) {
+      alert(error);
+    }
+  };
 
   validateEmail = (text) => {
     const reg = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
@@ -57,7 +81,7 @@ class Login extends Component {
 
       if (this.validateEmail(this.state.email)) {
         try {
-          const usersList = await AsyncStorage.getItem('ListaUsuarios');
+          const usersList = await AsyncStorage.getItem('UsersList');
           const users = JSON.parse(usersList);
 
           if (users !== null) {
@@ -65,13 +89,17 @@ class Login extends Component {
 
             if (user) {
               if (user.password === this.state.password) {
-                alert('Logado');
+                AsyncStorage.setItem('LoggedUser', JSON.stringify(user));
+
+                this.props.navigation.navigate('Employees');
               } else {
                 this.setState({ passwordError: 'Senha incorreta' });
               }
             } else {
-              alert('usuário não encontrado');
+              alert('Usuário não encontrado');
             }
+          } else {
+            alert('Usuário não encontrado');
           }
         } catch (error) {
           alert(error);
@@ -83,8 +111,13 @@ class Login extends Component {
   };
 
   render() {
+    if (this.state.isLoading) {
+      return <Loading />;
+    }
+
     return (
       <Container>
+        <Text style={{ fontSize: 32, textAlign: 'center', marginBottom: 50 }}>RN Pilot</Text>
         <KeyboardAvoidingView behavior="padding">
           <CustomInput
             textValue={this.state.email}

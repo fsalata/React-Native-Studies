@@ -170,7 +170,8 @@ class Register extends Component {
       users = [...users, newUser];
 
       try {
-        AsyncStorage.setItem('ListaUsuarios', JSON.stringify(users));
+        AsyncStorage.setItem('UsersList', JSON.stringify(users));
+        AsyncStorage.setItem('LoggedUser', JSON.stringify(newUser));
       } catch (error) {
         alert(error);
         return false;

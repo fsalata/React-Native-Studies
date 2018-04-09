@@ -2,8 +2,16 @@ import { SwitchNavigator, StackNavigator } from 'react-navigation';
 
 import Login from '../screens/Login';
 import Register from '../screens/Register';
+import Employees from '../screens/Employees';
 
 const LoginStack = StackNavigator({
+  Login: {
+    screen: Login,
+    navigationOptions: {
+      headerTitle: 'Login',
+      headerBackTitle: ' ',
+    },
+  },
   Register: {
     screen: Register,
     navigationOptions: {
@@ -11,10 +19,13 @@ const LoginStack = StackNavigator({
       headerBackTitle: ' ',
     },
   },
-  Login: {
-    screen: Login,
+});
+
+const EmployeesStack = StackNavigator({
+  Employees: {
+    screen: Employees,
     navigationOptions: {
-      headerTitle: 'Login',
+      headerTitle: 'Funcionários',
       headerBackTitle: ' ',
     },
   },
@@ -23,6 +34,7 @@ const LoginStack = StackNavigator({
 export default SwitchNavigator(
   {
     Login: LoginStack,
+    Employees: EmployeesStack,
   },
   {
     initialRouteName: 'Login',
