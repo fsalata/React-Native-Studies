@@ -10,13 +10,7 @@ const Avatar = ({ userAvatar, onPress }) => (
       {userAvatar === '' ? (
         <Icon name="ios-person" size={80} color="#3069C5" />
       ) : (
-        <Image
-          source={{
-            uri: userAvatar,
-          }}
-          style={{ width: 90, height: 90 }}
-          resizeMode="contain"
-        />
+        <Image source={userAvatar} style={{ width: 90, height: 90 }} resizeMode="cover" />
       )}
     </View>
   </TouchableOpacity>

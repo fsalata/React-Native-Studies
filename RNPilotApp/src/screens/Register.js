@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, KeyboardAvoidingView, Platform, ScrollView, AsyncStorage } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
+import ImagePicker from 'react-native-image-picker';
 
 // import { Container } from '../components/Container';
 import { Avatar } from '../components/Avatar';
@@ -26,6 +27,32 @@ class Register extends Component {
       cpfError: '',
     };
   }
+
+  userPhotoHandler = () => {
+    const options = {
+      title: 'Selecionar foto',
+      mediaType: 'photo',
+      cameraType: 'front',
+      storageOptions: {
+        skipBackup: true,
+        path: 'images',
+      },
+    };
+
+    ImagePicker.showImagePicker(options, (response) => {
+      if (response.didCancel) {
+        console.log('User cancelled image picker');
+      } else if (response.error) {
+        console.log('ImagePicker Error: ', response.error);
+      } else {
+        const source = { uri: `data:image/jpeg;base64,${response.data}` };
+
+        this.setState({
+          userPhoto: source,
+        });
+      }
+    });
+  };
 
   validateEmail = (text) => {
     const reg = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
@@ -170,7 +197,7 @@ class Register extends Component {
               paddingBottom: EStyleSheet.value('$defaultElementMargin'),
             }}
           >
-            <Avatar userAvatar={this.state.userPhoto} />
+            <Avatar userAvatar={this.state.userPhoto} onPress={this.userPhotoHandler} />
           </View>
 
           <View

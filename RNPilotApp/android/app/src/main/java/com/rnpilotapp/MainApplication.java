@@ -3,6 +3,9 @@ package com.rnpilotapp;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.oblador.vectoricons.VectorIconsPackage;
+import com.RNTextInputMask.RNTextInputMaskPackage;
+import com.imagepicker.ImagePickerPackage;
 import com.RNTextInputMask.RNTextInputMaskPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.facebook.react.ReactNativeHost;
@@ -25,6 +28,9 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new VectorIconsPackage(),
+            new RNTextInputMaskPackage(),
+            new ImagePickerPackage(),
             new RNTextInputMaskPackage(),
             new VectorIconsPackage()
       );
