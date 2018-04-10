@@ -1,23 +1,24 @@
 import React, { Component } from 'react';
 import { View, Text, Button } from 'react-native';
-import { CustomSearch } from '../components/CustomSearch';
+
+import { Container } from '../components/Container';
+import { EmployeesListItem } from '../components/EmployeesListItem';
+// import { CustomSearch } from '../components/CustomSearch';
 
 class Employees extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      loggedUser: '',
+      employees: [],
     };
   }
 
   render() {
     return (
-      <View>
-        <CustomSearch />
-        <Text>Employees</Text>
-        <Button onPress={() => this.props.navigation.navigate('ToDos')} title="go" />
-      </View>
+      <Container>
+        <EmployeesListItem />
+      </Container>
     );
   }
 }
