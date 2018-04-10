@@ -9,6 +9,8 @@ import { CustomInput } from '../components/CustomInput';
 import { CustomMaskedInput } from '../components/CustomMaskedInput';
 import { Button } from '../components/Button';
 
+import styles from './styles';
+
 class Register extends Component {
   constructor(props) {
     super(props);
@@ -190,7 +192,7 @@ class Register extends Component {
         behavior={Platform.OS === 'ios' ? 'padding' : null}
         keyboardVerticalOffset={60}
       >
-        <ScrollView style={EStyleSheet.value('$mainContainerMargin')}>
+        <ScrollView style={EStyleSheet.value('$mainContainerMargin')} style={styles.screen}>
           <View
             style={{
               justifyContent: 'center',

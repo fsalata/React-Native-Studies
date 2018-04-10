@@ -4,7 +4,14 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import styles from './styles';
 
 const EmployeesListItem = ({
-  onMapPress, onToDoPress, onPostsPress, onAlbumsPress,
+  name,
+  username,
+  latitute,
+  longitude,
+  onMapPress,
+  onToDoPress,
+  onPostsPress,
+  onAlbumsPress,
 }) => (
   <View style={styles.container}>
     <TouchableOpacity onPress={onMapPress}>
@@ -12,8 +19,8 @@ const EmployeesListItem = ({
     </TouchableOpacity>
 
     <View>
-      <Text style={styles.title}> Name </Text>
-      <Text style={styles.subtitle}> Name </Text>
+      <Text style={styles.title}> {name} </Text>
+      <Text style={styles.subtitle}> {username} </Text>
     </View>
 
     <View style={styles.linksContainer}>

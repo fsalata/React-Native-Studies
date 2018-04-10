@@ -7,6 +7,8 @@ import { Container } from '../components/Container';
 import { CustomInput } from '../components/CustomInput';
 import { Button } from '../components/Button';
 
+import styles from './styles';
+
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -117,8 +119,8 @@ class Login extends Component {
 
     return (
       <Container>
-        <Text style={{ fontSize: 32, textAlign: 'center', marginBottom: 50 }}>RN Pilot</Text>
-        <KeyboardAvoidingView behavior="padding">
+        <KeyboardAvoidingView behavior="padding" style={styles.screen}>
+          <Text style={{ fontSize: 32, textAlign: 'center', marginBottom: 50 }}>RN Pilot</Text>
           <CustomInput
             textValue={this.state.email}
             placeholder="E-mail"
@@ -133,12 +135,15 @@ class Login extends Component {
             extraMarginTop={20}
             errorMessage={this.state.passwordError}
           />
+          <View style={{ marginTop: 40 }}>
+            <Button title="LOGIN" onPress={this.LoginHandle} />
+            <LoginSeparator />
+            <Button
+              title="CADASTRE-SE"
+              onPress={() => this.props.navigation.navigate('Register')}
+            />
+          </View>
         </KeyboardAvoidingView>
-        <View style={{ marginTop: 40 }}>
-          <Button title="LOGIN" onPress={this.LoginHandle} />
-          <LoginSeparator />
-          <Button title="CADASTRE-SE" onPress={() => this.props.navigation.navigate('Register')} />
-        </View>
       </Container>
     );
   }

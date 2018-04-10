@@ -4,6 +4,8 @@ import Login from '../screens/Login';
 import Register from '../screens/Register';
 import Employees from '../screens/Employees';
 import ToDos from '../screens/ToDos';
+import Albums from '../screens/Albums';
+import Posts from '../screens/Posts';
 
 const LoginStack = StackNavigator({
   Login: {
@@ -28,15 +30,26 @@ const EmployeesStack = StackNavigator({
     navigationOptions: {
       headerTitle: 'Funcionários',
       headerBackTitle: ' ',
-      headerStyle: {
-        borderBottomWidth: 0,
-      },
     },
   },
   ToDos: {
     screen: ToDos,
     navigationOptions: {
       headerTitle: 'To Dos',
+      headerBackTitle: ' ',
+    },
+  },
+  Albums: {
+    screen: Albums,
+    navigationOptions: {
+      headerTitle: 'Albums',
+      headerBackTitle: ' ',
+    },
+  },
+  Posts: {
+    screen: Posts,
+    navigationOptions: {
+      headerTitle: 'Posts',
       headerBackTitle: ' ',
     },
   },
