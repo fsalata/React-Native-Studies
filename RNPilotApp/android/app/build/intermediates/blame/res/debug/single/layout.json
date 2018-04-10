@@ -24,6 +24,10 @@
         "source": "/Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/layout/notification_template_big_media_narrow.xml"
     },
     {
+        "merged": "/Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/res/merged/debug/layout/list_item.xml",
+        "source": "/Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/RNPilotApp/react-native-image-picker/unspecified/res/layout/list_item.xml"
+    },
+    {
         "merged": "/Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/res/merged/debug/layout/abc_action_mode_bar.xml",
         "source": "/Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/layout/abc_action_mode_bar.xml"
     },

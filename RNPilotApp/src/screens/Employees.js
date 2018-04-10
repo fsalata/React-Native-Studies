@@ -33,8 +33,12 @@ class Employees extends Component {
   };
 
   handleMapPress = (latitude, longitude) => {
-    console.log(`${latitude} ${longitude}`);
-    openMap({ latitude, longitude });
+    openMap({
+      latitude,
+      longitude,
+      zoomLevel: 7,
+      name: `${latitude}, ${longitude}`,
+    });
   };
 
   render() {

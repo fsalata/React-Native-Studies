@@ -16,6 +16,6 @@ export default EStyleSheet.create({
   error: {
     color: '$errorLabelColor',
     fontSize: 11,
-    height: 12,
+    height: 14,
   },
 });

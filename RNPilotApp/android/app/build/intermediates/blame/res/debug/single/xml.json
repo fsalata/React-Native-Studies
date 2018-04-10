@@ -1,5 +1,9 @@
 [
     {
+        "merged": "/Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/res/merged/debug/xml/provider_paths.xml",
+        "source": "/Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/RNPilotApp/react-native-image-picker/unspecified/res/xml/provider_paths.xml"
+    },
+    {
         "merged": "/Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/res/merged/debug/xml/preferences.xml",
         "source": "/Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.54.0/res/xml/preferences.xml"
     }
