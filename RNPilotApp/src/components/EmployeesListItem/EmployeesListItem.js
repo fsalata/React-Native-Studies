@@ -6,8 +6,6 @@ import styles from './styles';
 const EmployeesListItem = ({
   name,
   username,
-  latitute,
-  longitude,
   onMapPress,
   onToDoPress,
   onPostsPress,

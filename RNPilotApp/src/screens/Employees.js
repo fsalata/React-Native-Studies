@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { FlatList } from 'react-native';
+import openMap from 'react-native-open-maps';
 
 import { Container } from '../components/Container';
 import { EmployeesListItem } from '../components/EmployeesListItem';
@@ -27,8 +28,12 @@ class Employees extends Component {
       });
   }
 
-  handleToDoPress = (route, userID) => {
+  handleButtonsPress = (route, userID) => {
     this.props.navigation.navigate(route, { userID });
+  };
+
+  handleMapPress = (latitude, longitude) => {
+    openMap({ latitude, longitude });
   };
 
   render() {
@@ -44,9 +49,10 @@ class Employees extends Component {
             <EmployeesListItem
               name={user.item.name}
               username={user.item.username}
-              onToDoPress={() => this.handleToDoPress('ToDos', user.item.id)}
-              onPostsPress={() => this.handleToDoPress('Posts', user.item.id)}
-              onAlbumsPress={() => this.handleToDoPress('Albums', user.item.id)}
+              onMapPress={() => this.handleMapPress(user.item.latitude, user.item.longitude)}
+              onToDoPress={() => this.handleButtonsPress('ToDos', user.item.id)}
+              onPostsPress={() => this.handleButtonsPress('Posts', user.item.id)}
+              onAlbumsPress={() => this.handleButtonsPress('Albums', user.item.id)}
             />
           )}
           key={user => user.item.id}
