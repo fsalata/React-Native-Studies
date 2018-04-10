@@ -7,7 +7,7 @@ import { AlbumListItem } from '../components/AlbumListItem';
 
 import styles from './styles';
 
-class Albums extends Component {
+class AlbumsPhotos extends Component {
   constructor(props) {
     super(props);
 
@@ -18,9 +18,9 @@ class Albums extends Component {
   }
 
   componentDidMount() {
-    const { userID } = this.props.navigation.state.params;
+    const { albumID } = this.props.navigation.state.params;
 
-    fetch(`https://jsonplaceholder.typicode.com/albums?userId=${userID}`)
+    fetch(`https://jsonplaceholder.typicode.com/photos?albumId=${albumID}`)
       .then(response => response.json())
       .then(responseJson => this.setState({ todos: responseJson, isLoading: false }))
       .catch((error) => {
@@ -55,4 +55,4 @@ class Albums extends Component {
   }
 }
 
-export default Albums;
+export default AlbumsPhotos;

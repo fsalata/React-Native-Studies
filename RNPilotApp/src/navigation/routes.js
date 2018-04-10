@@ -7,6 +7,7 @@ import ToDos from '../screens/ToDos';
 import Albums from '../screens/Albums';
 import Posts from '../screens/Posts';
 import PostDetail from '../screens/PostDetail';
+import AlbumPhotos from '../screens/AlbumPhotos';
 
 const LoginStack = StackNavigator({
   Login: {
@@ -43,7 +44,14 @@ const EmployeesStack = StackNavigator({
   Albums: {
     screen: Albums,
     navigationOptions: {
-      headerTitle: 'Albums',
+      headerTitle: 'Álbuns',
+      headerBackTitle: ' ',
+    },
+  },
+  AlbumPhotos: {
+    screen: AlbumPhotos,
+    navigationOptions: {
+      headerTitle: 'Fotos',
       headerBackTitle: ' ',
     },
   },
