@@ -59,7 +59,7 @@ class Employees extends Component {
             />
           )}
           key={user => user.item.id}
-          style={styles.screen}
+          contentContainerStyle={styles.listScreen}
         />
       </Container>
     );

@@ -43,7 +43,7 @@ class Posts extends Component {
             </View>
           )}
           key={todo => todo.item.id}
-          style={styles.screen}
+          contentContainerStyle={styles.listScreen}
         />
       </Container>
     );

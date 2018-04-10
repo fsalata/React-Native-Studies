@@ -6,4 +6,9 @@ export default EStyleSheet.create({
     paddingHorizontal: 10,
     paddingBottom: 15,
   },
+  listScreen: {
+    paddingTop: 20,
+    paddingHorizontal: 10,
+    paddingBottom: 5,
+  },
 });
