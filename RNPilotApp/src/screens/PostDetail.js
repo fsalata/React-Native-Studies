@@ -3,26 +3,27 @@ import { FlatList } from 'react-native';
 
 import { Container } from '../components/Container';
 import { Loading } from '../components/Loading';
-import { ToDoListItem } from '../components/ToDoListItem';
-
+import { PostDetailListItem } from '../components/PostDetailListItem';
 import styles from './styles';
 
-class ToDos extends Component {
+// https://jsonplaceholder.typicode.com/todos?userId=1
+
+class PostDetail extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      todos: [],
+      comments: [],
       isLoading: true,
     };
   }
 
   componentDidMount() {
-    const { userID } = this.props.navigation.state.params;
+    const { postID } = this.props.navigation.state.params;
 
-    fetch(`https://jsonplaceholder.typicode.com/todos?userId=${userID}`)
+    fetch(`https://jsonplaceholder.typicode.com/comments?postId=${postID}`)
       .then(response => response.json())
-      .then(responseJson => this.setState({ todos: responseJson, isLoading: false }))
+      .then(responseJson => this.setState({ comments: responseJson, isLoading: false }))
       .catch((error) => {
         alert(error);
       });
@@ -36,11 +37,9 @@ class ToDos extends Component {
     return (
       <Container>
         <FlatList
-          data={this.state.todos}
-          renderItem={todo => (
-            <ToDoListItem todo={todo.item} bgColor={todo.item.completed ? '#080' : '#a00'} />
-          )}
-          key={todo => todo.item.id}
+          data={this.state.comments}
+          renderItem={comment => <PostDetailListItem comment={comment.item} />}
+          key={comment => comment.item.id}
           contentContainerStyle={styles.listScreen}
         />
       </Container>
@@ -48,4 +47,4 @@ class ToDos extends Component {
   }
 }
 
-export default ToDos;
+export default PostDetail;

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { FlatList, Text, View } from 'react-native';
+import { FlatList } from 'react-native';
 
 import { Container } from '../components/Container';
 import { Loading } from '../components/Loading';
+import { PostListItem } from '../components/PostListItem';
 import styles from './styles';
 
 // https://jsonplaceholder.typicode.com/todos?userId=1
@@ -28,6 +29,10 @@ class Posts extends Component {
       });
   }
 
+  handlePostPress = (postID) => {
+    this.props.navigation.navigate('PostDetail', { postID });
+  };
+
   render() {
     if (this.state.isLoading) {
       return <Loading />;
@@ -37,12 +42,10 @@ class Posts extends Component {
       <Container>
         <FlatList
           data={this.state.todos}
-          renderItem={todo => (
-            <View>
-              <Text>{todo.item.title}</Text>
-            </View>
+          renderItem={post => (
+            <PostListItem post={post.item} onPress={() => this.handlePostPress(post.item.id)} />
           )}
-          key={todo => todo.item.id}
+          key={post => post.item.id}
           contentContainerStyle={styles.listScreen}
         />
       </Container>

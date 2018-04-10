@@ -6,6 +6,7 @@ import Employees from '../screens/Employees';
 import ToDos from '../screens/ToDos';
 import Albums from '../screens/Albums';
 import Posts from '../screens/Posts';
+import PostDetail from '../screens/PostDetail';
 
 const LoginStack = StackNavigator({
   Login: {
@@ -50,6 +51,13 @@ const EmployeesStack = StackNavigator({
     screen: Posts,
     navigationOptions: {
       headerTitle: 'Posts',
+      headerBackTitle: ' ',
+    },
+  },
+  PostDetail: {
+    screen: PostDetail,
+    navigationOptions: {
+      headerTitle: 'Comentários',
       headerBackTitle: ' ',
     },
   },
