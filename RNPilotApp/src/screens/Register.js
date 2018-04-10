@@ -150,7 +150,7 @@ class Register extends Component {
 
   saveUser = async () => {
     try {
-      const usersList = await AsyncStorage.getItem('ListaUsuarios');
+      const usersList = await AsyncStorage.getItem('UsersList');
       let users = usersList === null ? [] : JSON.parse(usersList);
 
       if (users.length > 0) {
@@ -161,6 +161,7 @@ class Register extends Component {
           return false;
         }
       }
+      
       const newUser = {
         name: this.state.name,
         email: this.state.email,
