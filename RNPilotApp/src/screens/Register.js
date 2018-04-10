@@ -153,8 +153,8 @@ class Register extends Component {
       const usersList = await AsyncStorage.getItem('ListaUsuarios');
       let users = usersList === null ? [] : JSON.parse(usersList);
 
-      if (users !== null) {
-        const user = users.find(u => u.cpf.trim() === this.state.cpf.trim());
+      if (users.length > 0) {
+        const user = users.find(u => u.cpf.trim() === this.state.cpf.trim() || u.email.trim() === this.state.email.trim());
 
         if (user) {
           alert('Usuário já cadastrado');
