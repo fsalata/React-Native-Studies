@@ -58,7 +58,7 @@ class Login extends Component {
 
   usernameTextChangeHandler = (text) => {
     this.setState({
-      email: text.toLowerCase().trim(),
+      email: text,
       emailError:
         this.validateEmail(this.state.email) === false && [...text].length > 3
           ? 'E-mail inválido'
@@ -126,6 +126,7 @@ class Login extends Component {
             placeholder="E-mail"
             onChangeText={this.usernameTextChangeHandler}
             errorMessage={this.state.emailError}
+            capitalize={false}
           />
           <CustomInput
             textValue={this.state.password}

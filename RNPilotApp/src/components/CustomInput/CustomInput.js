@@ -12,6 +12,7 @@ const CustomInput = ({
   extraMarginTop,
   floatingLabel = '',
   keyboardType,
+  capitalize = true,
 }) => (
   <View style={{ marginTop: extraMarginTop }}>
     {floatingLabel !== '' ? <Text style={styles.label}>{floatingLabel}</Text> : null}
@@ -24,6 +25,7 @@ const CustomInput = ({
         style={styles.input}
         secureTextEntry={isSecure}
         keyboardType={keyboardType}
+        autoCapitalize={capitalize ? 'sentences' : 'none'}
       />
     </View>
     <Text style={styles.error}>{errorMessage}</Text>

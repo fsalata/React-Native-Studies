@@ -43,9 +43,9 @@ class Register extends Component {
 
     ImagePicker.showImagePicker(options, (response) => {
       if (response.didCancel) {
-        console.log('User cancelled image picker');
+        // console.log('User cancelled image picker');
       } else if (response.error) {
-        console.log('ImagePicker Error: ', response.error);
+        // console.log('ImagePicker Error: ', response.error);
       } else {
         const source = { uri: `data:image/jpeg;base64,${response.data}` };
 
@@ -67,7 +67,7 @@ class Register extends Component {
 
   emailTextChangeHandler = (text) => {
     this.setState({
-      email: text.toLowerCase().trim(),
+      email: text,
       emailError:
         this.validateEmail(this.state.email) === false && [...text].length > 3
           ? 'E-mail inválido'
@@ -192,7 +192,7 @@ class Register extends Component {
         behavior={Platform.OS === 'ios' ? 'padding' : null}
         keyboardVerticalOffset={60}
       >
-        <ScrollView style={EStyleSheet.value('$mainContainerMargin')} style={styles.screen}>
+        <ScrollView contentContainerStyle={styles.screen}>
           <View
             style={{
               justifyContent: 'center',
@@ -222,6 +222,7 @@ class Register extends Component {
               extraMarginTop={20}
               keyboardType="email-address"
               errorMessage={this.state.emailError}
+              capitalize={false}
             />
             <CustomInput
               floatingLabel="Senha"
