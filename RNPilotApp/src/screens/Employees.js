@@ -33,6 +33,7 @@ class Employees extends Component {
   };
 
   handleMapPress = (latitude, longitude) => {
+    console.log(`${latitude} ${longitude}`);
     openMap({ latitude, longitude });
   };
 
@@ -49,7 +50,9 @@ class Employees extends Component {
             <EmployeesListItem
               name={user.item.name}
               username={user.item.username}
-              onMapPress={() => this.handleMapPress(user.item.latitude, user.item.longitude)}
+              onMapPress={() =>
+                this.handleMapPress(user.item.address.geo.lat, user.item.address.geo.lng)
+              }
               onToDoPress={() => this.handleButtonsPress('ToDos', user.item.id)}
               onPostsPress={() => this.handleButtonsPress('Posts', user.item.id)}
               onAlbumsPress={() => this.handleButtonsPress('Albums', user.item.id)}
