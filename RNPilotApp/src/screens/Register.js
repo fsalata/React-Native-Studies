@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
-import { View, KeyboardAvoidingView, Platform, ScrollView, AsyncStorage } from 'react-native';
+import {
+  View,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  AsyncStorage,
+  Alert,
+} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import ImagePicker from 'react-native-image-picker';
 
@@ -143,7 +150,12 @@ class Register extends Component {
 
     if (isValid === true) {
       if (await this.saveUser()) {
-        alert('Usuário Salvo');
+        Alert.alert(
+          'Sucesso!',
+          'Usuário cadastrado',
+          [{ text: 'OK', onPress: () => this.props.navigation.navigate('Employees') }],
+          { cancelable: false },
+        );
       }
     }
   };
@@ -157,11 +169,11 @@ class Register extends Component {
         const user = users.find(u => u.cpf.trim() === this.state.cpf.trim() || u.email.trim() === this.state.email.trim());
 
         if (user) {
-          alert('Usuário já cadastrado');
+          Alert.alert('Atenção', 'Usuário já cadastrado');
           return false;
         }
       }
-      
+
       const newUser = {
         name: this.state.name,
         email: this.state.email,

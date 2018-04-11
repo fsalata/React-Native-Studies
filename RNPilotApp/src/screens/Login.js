@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, AsyncStorage, KeyboardAvoidingView } from 'react-native';
+import { View, Text, AsyncStorage, KeyboardAvoidingView, Alert } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 import { Loading } from '../components/Loading';
@@ -98,10 +98,10 @@ class Login extends Component {
                 this.setState({ passwordError: 'Senha incorreta' });
               }
             } else {
-              alert('Usuário não encontrado');
+              Alert.alert('Atenção', 'Usuário não encontrado');
             }
           } else {
-            alert('Usuário não encontrado');
+            Alert.alert('Atenção', 'Usuário não encontrado');
           }
         } catch (error) {
           alert(error);
