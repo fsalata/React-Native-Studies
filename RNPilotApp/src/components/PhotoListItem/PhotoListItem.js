@@ -3,10 +3,10 @@ import { View, Image, TouchableOpacity } from 'react-native';
 
 import styles from './styles';
 
-const PhotoListItem = ({ image, onImagePress }) => (
+const PhotoListItem = ({ photo, onImagePress }) => (
   <TouchableOpacity onPress={onImagePress}>
     <View>
-      <Image style={styles.image} source={image} />
+      <Image style={styles.image} source={{ uri: photo.thumbnailUrl }} />
     </View>
   </TouchableOpacity>
 );

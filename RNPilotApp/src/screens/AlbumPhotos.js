@@ -3,7 +3,7 @@ import { FlatList } from 'react-native';
 
 import { Container } from '../components/Container';
 import { Loading } from '../components/Loading';
-import { AlbumListItem } from '../components/AlbumListItem';
+import { PhotoListItem } from '../components/PhotoListItem';
 
 import styles from './styles';
 
@@ -41,14 +41,9 @@ class AlbumsPhotos extends Component {
       <Container>
         <FlatList
           data={this.state.todos}
-          renderItem={album => (
-            <AlbumListItem
-              album={album.item}
-              onAlbumPress={() => this.handleAlbumPress(album.item.id)}
-            />
-          )}
-          key={album => album.item.id}
-          contentContainerStyle={styles.listScreen}
+          renderItem={photo => <PhotoListItem photo={photo.item} />}
+          key={photo => photo.item.id}
+          contentContainerStyle={[...styles.listScreen, { flexDirection: 'row' }]}
         />
       </Container>
     );
