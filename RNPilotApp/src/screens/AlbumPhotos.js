@@ -5,7 +5,7 @@ import { Container } from '../components/Container';
 import { Loading } from '../components/Loading';
 import { PhotoListItem } from '../components/PhotoListItem';
 
-import styles from './styles';
+// import styles from './styles';
 
 class AlbumsPhotos extends Component {
   constructor(props) {
@@ -40,10 +40,12 @@ class AlbumsPhotos extends Component {
     return (
       <Container>
         <FlatList
+          numColumns={3}
+          horizontal={false}
+          columnWrapperStyle={{ justifyContent: 'flex-start', marginHorizontal: 7 }}
           data={this.state.todos}
           renderItem={photo => <PhotoListItem photo={photo.item} />}
           key={photo => photo.item.id}
-          contentContainerStyle={[...styles.listScreen, { flexDirection: 'row' }]}
         />
       </Container>
     );
