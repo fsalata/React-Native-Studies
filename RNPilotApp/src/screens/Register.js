@@ -213,7 +213,12 @@ class Register extends Component {
               paddingBottom: EStyleSheet.value('$defaultElementMargin'),
             }}
           >
-            <Avatar userAvatar={this.state.userPhoto} onPress={this.userPhotoHandler} />
+            <Avatar
+              userAvatar={this.state.userPhoto}
+              onPress={this.userPhotoHandler}
+              width={80}
+              height={80}
+            />
           </View>
 
           <View

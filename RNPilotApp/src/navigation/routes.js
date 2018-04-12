@@ -1,4 +1,5 @@
 import { SwitchNavigator, StackNavigator } from 'react-navigation';
+import React from 'react';
 
 import Login from '../screens/Login';
 import Register from '../screens/Register';
@@ -8,6 +9,9 @@ import Albums from '../screens/Albums';
 import Posts from '../screens/Posts';
 import PostDetail from '../screens/PostDetail';
 import AlbumPhotos from '../screens/AlbumPhotos';
+import UserProfile from '../screens/UserProfile';
+
+import { ProfileButton } from '../components/ProfileButton';
 
 const LoginStack = StackNavigator({
   Login: {
@@ -32,6 +36,7 @@ const EmployeesStack = StackNavigator({
     navigationOptions: {
       headerTitle: 'Funcionários',
       headerBackTitle: ' ',
+      headerRight: <ProfileButton />,
     },
   },
   ToDos: {
@@ -39,6 +44,7 @@ const EmployeesStack = StackNavigator({
     navigationOptions: {
       headerTitle: 'To Dos',
       headerBackTitle: ' ',
+      headerRight: <ProfileButton />,
     },
   },
   Albums: {
@@ -46,6 +52,7 @@ const EmployeesStack = StackNavigator({
     navigationOptions: {
       headerTitle: 'Álbuns',
       headerBackTitle: ' ',
+      headerRight: <ProfileButton />,
     },
   },
   AlbumPhotos: {
@@ -53,6 +60,7 @@ const EmployeesStack = StackNavigator({
     navigationOptions: {
       headerTitle: 'Fotos',
       headerBackTitle: ' ',
+      headerRight: <ProfileButton />,
     },
   },
   Posts: {
@@ -60,12 +68,21 @@ const EmployeesStack = StackNavigator({
     navigationOptions: {
       headerTitle: 'Posts',
       headerBackTitle: ' ',
+      headerRight: <ProfileButton />,
     },
   },
   PostDetail: {
     screen: PostDetail,
     navigationOptions: {
       headerTitle: 'Comentários',
+      headerBackTitle: ' ',
+      headerRight: <ProfileButton />,
+    },
+  },
+  UserProfile: {
+    screen: UserProfile,
+    navigationOptions: {
+      headerTitle: 'Perfil',
       headerBackTitle: ' ',
     },
   },
