@@ -5,7 +5,7 @@ import styles from './styles';
 
 const PhotoListItem = ({ photo, onImagePress }) => (
   <TouchableOpacity onPress={onImagePress}>
-    <Image style={styles.image} source={{ uri: photo.thumbnailUrl.replace('http', 'https') }} />
+    <Image style={styles.image} source={{ uri: photo.thumbnailUrl }} />
   </TouchableOpacity>
 );
 
