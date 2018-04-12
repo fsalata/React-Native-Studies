@@ -1,6 +1,6 @@
 export const SAVE_LOGGED_USER = 'SAVE_LOGGED_USER';
 
 export const saveLoggedUser = user => ({
-  type: saveLoggedUser,
+  type: SAVE_LOGGED_USER,
   user,
 });

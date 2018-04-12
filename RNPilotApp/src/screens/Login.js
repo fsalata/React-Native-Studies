@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
-import { View, Text, AsyncStorage, KeyboardAvoidingView, Alert } from 'react-native';
+import {
+  View,
+  Text,
+  AsyncStorage,
+  KeyboardAvoidingView,
+  Alert,
+} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
+import { connect } from 'react-redux';
+import { saveLoggedUser } from '../actions/user';
 
 import { Loading } from '../components/Loading';
 import { Container } from '../components/Container';
@@ -36,7 +44,8 @@ class Login extends Component {
       const user = JSON.parse(usersList);
 
       if (user !== null && user !== '') {
-        this.props.navigation.navigate('Employees', { loggedUser: user });
+        this.props.dispatch(saveLoggedUser(user));
+        this.props.navigation.navigate('Employees');
       }
 
       this.setState({
@@ -93,7 +102,9 @@ class Login extends Component {
               if (user.password === this.state.password) {
                 AsyncStorage.setItem('LoggedUser', JSON.stringify(user));
 
-                this.props.navigation.navigate('Employees', { loggedUser: user });
+                this.props.navigation.navigate('Employees', {
+                  loggedUser: user,
+                });
               } else {
                 this.setState({ passwordError: 'Senha incorreta' });
               }
@@ -120,7 +131,9 @@ class Login extends Component {
     return (
       <Container>
         <KeyboardAvoidingView behavior="padding" style={styles.screen}>
-          <Text style={{ fontSize: 32, textAlign: 'center', marginBottom: 50 }}>RN Pilot</Text>
+          <Text style={{ fontSize: 32, textAlign: 'center', marginBottom: 50 }}>
+            RN Pilot
+          </Text>
           <CustomInput
             textValue={this.state.email}
             placeholder="E-mail"
@@ -181,4 +194,4 @@ const LoginSeparator = () => (
   </View>
 );
 
-export default Login;
+export default connect()(Login);

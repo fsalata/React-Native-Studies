@@ -1,5 +1,8 @@
 import React from 'react';
 import EStyleSheet from 'react-native-extended-stylesheet';
+import { Provider } from 'react-redux';
+
+import store from './src/config/store';
 
 import Navigator from './src/navigation/routes';
 
@@ -22,6 +25,10 @@ EStyleSheet.build({
 
 console.disableYellowBox = true;
 
-const App = () => <Navigator />;
+const App = () => (
+  <Provider store={store}>
+    <Navigator />
+  </Provider>
+);
 
 export default App;
