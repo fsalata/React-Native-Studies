@@ -40,8 +40,8 @@ class ProfileButton extends Component {
         <Avatar
           style={styles.button}
           userAvatar={this.state.user ? this.state.user.userPhoto : ''}
-          width={20}
-          height={20}
+          width={30}
+          height={30}
           onPress={() => this.props.navigation.navigate('UserProfile')}
         />
       </View>

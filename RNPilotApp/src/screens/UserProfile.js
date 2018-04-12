@@ -51,12 +51,12 @@ export default class UserProfile extends Component {
             height={80}
           /> */}
           </View>
-          <View>
+          <View style={{ paddingBottom: 80 }}>
             <Text style={pageStyles.title}>Nome</Text>
             <Text style={pageStyles.subtitle}>Email</Text>
             <Text style={pageStyles.subtitle}>CPF</Text>
           </View>
-          <Button onPress={this.logout} />
+          <Button title="Sair" onPress={this.logout} />
         </View>
       </Container>
     );
