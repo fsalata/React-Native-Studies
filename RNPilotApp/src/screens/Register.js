@@ -18,6 +18,7 @@ import { Avatar } from '../components/Avatar';
 import { CustomInput } from '../components/CustomInput';
 import { CustomMaskedInput } from '../components/CustomMaskedInput';
 import { Button } from '../components/Button';
+import { Loading } from '../components/Loading';
 
 import styles from './styles';
 
@@ -37,6 +38,7 @@ class Register extends Component {
       passwordError: '',
       passwordConfirmationError: '',
       cpfError: '',
+      isLoading: false,
     };
   }
 
@@ -163,6 +165,7 @@ class Register extends Component {
     }
 
     if (isValid === true) {
+      this.setState({ isLoading: true });
       if (await this.saveUser()) {
         Alert.alert(
           'Sucesso!',
@@ -177,6 +180,7 @@ class Register extends Component {
         );
       }
     }
+    this.setState({ isLoading: false });
   };
 
   saveUser = async () => {
@@ -222,6 +226,10 @@ class Register extends Component {
   };
 
   render() {
+    if (this.state.isLoading) {
+      return <Loading />;
+    }
+
     const photoURI = this.state.userPhotoURI
       ? { uri: this.state.userPhotoURI }
       : '';
