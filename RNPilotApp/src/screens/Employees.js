@@ -3,18 +3,20 @@ import { FlatList } from 'react-native';
 import openMap from 'react-native-open-maps';
 
 import { Container } from '../components/Container';
+import { CustomSearch } from '../components/CustomSearch';
 import { EmployeesListItem } from '../components/EmployeesListItem';
 import { Loading } from '../components/Loading';
 
 import styles from './styles';
-// import { CustomSearch } from '../components/CustomSearch';
 
 class Employees extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      employees: [],
+      term: '',
+      rawData: [],
+      filteredData: [],
       isLoading: true,
     };
   }
@@ -22,7 +24,12 @@ class Employees extends Component {
   componentDidMount() {
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(response => response.json())
-      .then(responseJson => this.setState({ employees: responseJson, isLoading: false }))
+      .then(responseJson =>
+        this.setState({
+          rawData: responseJson,
+          filteredData: responseJson,
+          isLoading: false,
+        }))
       .catch((error) => {
         alert(error);
       });
@@ -41,6 +48,24 @@ class Employees extends Component {
     });
   };
 
+  searchTextClear = () => {
+    this.setState({
+      term: '',
+      filteredData: this.state.rawData,
+    });
+  };
+
+  searchHandler = (text) => {
+    const results = this.state.rawData.filter(item =>
+      item.name.toLowerCase().includes(text.toLowerCase()) ||
+        item.username.toLowerCase().includes(text.toLowerCase()));
+
+    this.setState({
+      term: text,
+      filteredData: results,
+    });
+  };
+
   render() {
     if (this.state.isLoading) {
       return <Loading />;
@@ -48,18 +73,30 @@ class Employees extends Component {
 
     return (
       <Container>
+        <CustomSearch
+          value={this.state.term}
+          onChangeText={this.searchHandler}
+          onClearText={this.searchTextClear}
+        />
         <FlatList
-          data={this.state.employees}
+          data={this.state.filteredData}
           renderItem={user => (
             <EmployeesListItem
               name={user.item.name}
               username={user.item.username}
               onMapPress={() =>
-                this.handleMapPress(user.item.address.geo.lat, user.item.address.geo.lng)
+                this.handleMapPress(
+                  user.item.address.geo.lat,
+                  user.item.address.geo.lng,
+                )
               }
               onToDoPress={() => this.handleButtonsPress('ToDos', user.item.id)}
-              onPostsPress={() => this.handleButtonsPress('Posts', user.item.id)}
-              onAlbumsPress={() => this.handleButtonsPress('Albums', user.item.id)}
+              onPostsPress={() =>
+                this.handleButtonsPress('Posts', user.item.id)
+              }
+              onAlbumsPress={() =>
+                this.handleButtonsPress('Albums', user.item.id)
+              }
             />
           )}
           key={user => user.item.id}

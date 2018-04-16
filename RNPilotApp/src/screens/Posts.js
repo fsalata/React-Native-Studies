@@ -4,6 +4,8 @@ import { FlatList } from 'react-native';
 import { Container } from '../components/Container';
 import { Loading } from '../components/Loading';
 import { PostListItem } from '../components/PostListItem';
+import { CustomSearch } from '../components/CustomSearch';
+
 import styles from './styles';
 
 // https://jsonplaceholder.typicode.com/todos?userId=1
@@ -13,7 +15,9 @@ class Posts extends Component {
     super(props);
 
     this.state = {
-      todos: [],
+      term: '',
+      rawData: [],
+      filteredData: [],
       isLoading: true,
     };
   }
@@ -23,7 +27,12 @@ class Posts extends Component {
 
     fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userID}`)
       .then(response => response.json())
-      .then(responseJson => this.setState({ todos: responseJson, isLoading: false }))
+      .then(responseJson =>
+        this.setState({
+          rawData: responseJson,
+          filteredData: responseJson,
+          isLoading: false,
+        }))
       .catch((error) => {
         alert(error);
       });
@@ -33,6 +42,24 @@ class Posts extends Component {
     this.props.navigation.navigate('PostDetail', { postID });
   };
 
+  searchTextClear = () => {
+    this.setState({
+      term: '',
+      filteredData: this.state.rawData,
+    });
+  };
+
+  searchHandler = (text) => {
+    const results = this.state.rawData.filter(item =>
+      item.title.toLowerCase().includes(text.toLowerCase()) ||
+        item.body.toLowerCase().includes(text.toLowerCase()));
+
+    this.setState({
+      term: text,
+      filteredData: results,
+    });
+  };
+
   render() {
     if (this.state.isLoading) {
       return <Loading />;
@@ -40,10 +67,18 @@ class Posts extends Component {
 
     return (
       <Container>
+        <CustomSearch
+          value={this.state.term}
+          onChangeText={this.searchHandler}
+          onClearText={this.searchTextClear}
+        />
         <FlatList
-          data={this.state.todos}
+          data={this.state.filteredData}
           renderItem={post => (
-            <PostListItem post={post.item} onPress={() => this.handlePostPress(post.item.id)} />
+            <PostListItem
+              post={post.item}
+              onPress={() => this.handlePostPress(post.item.id)}
+            />
           )}
           key={post => post.item.id}
           contentContainerStyle={styles.listScreen}

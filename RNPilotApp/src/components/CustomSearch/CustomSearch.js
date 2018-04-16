@@ -1,16 +1,20 @@
 import React from 'react';
-import { View, TextInput, TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import { SearchBar } from 'react-native-elements';
 
-import styles from './styles';
+// import styles from './styles';
 
-const CustomSearch = () => (
-  <View style={styles.container}>
-    <TextInput style={styles.input} placeholder="Busca..." />
-    <TouchableOpacity style={styles.closeIcon}>
-      <Icon name="ios-close-circle-outline" size={25} color="#333" />
-    </TouchableOpacity>
-  </View>
+const CustomSearch = ({ value, onChangeText, onClearText }) => (
+  <SearchBar
+    lightTheme
+    placeholder="Pesquisar..."
+    value={value}
+    icon={{ type: 'Ionicons', name: 'search' }}
+    clearIcon={{ type: 'Ionicons', name: 'close' }}
+    containerStyle={{ backgroundColor: 'rgba(255, 255, 255, 0.4)' }}
+    inputStyle={{ backgroundColor: '#fff' }}
+    onChangeText={onChangeText}
+    onClearText={onClearText}
+  />
 );
 
 export default CustomSearch;
