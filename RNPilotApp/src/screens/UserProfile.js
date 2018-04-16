@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text, AsyncStorage, StyleSheet } from 'react-native';
+import { connect } from 'react-redux';
+import { loggoutUser } from '../actions/user';
+import TextInputMask from 'react-native-text-input-mask';
 
 import { Container } from '../components/Container';
 import { Avatar } from '../components/Avatar';
@@ -22,10 +25,11 @@ const pageStyles = StyleSheet.create({
   },
 });
 
-export default class UserProfile extends Component {
+class UserProfile extends Component {
   logout = async () => {
     try {
       await AsyncStorage.removeItem('LoggedUser');
+      this.props.dispatch(loggoutUser());
       this.props.navigation.navigate('Login');
     } catch (error) {
       alert(error);
@@ -43,18 +47,24 @@ export default class UserProfile extends Component {
               paddingBottom: 20,
             }}
           >
-            <Avatar touchDisabled />
-            {/* <Avatar
-            userAvatar={this.state.userPhoto}
-            onPress={this.userPhotoHandler}
-            width={80}
-            height={80}
-          /> */}
+            <Avatar
+              userAvatar={this.props.user ? this.props.user.userPhoto : ''}
+              touchDisabled
+              width={80}
+              height={80}
+            />
           </View>
           <View style={{ paddingBottom: 80 }}>
-            <Text style={pageStyles.title}>Nome</Text>
-            <Text style={pageStyles.subtitle}>Email</Text>
-            <Text style={pageStyles.subtitle}>CPF</Text>
+            <Text style={pageStyles.title}>{this.props.user.name}</Text>
+            <Text style={pageStyles.subtitle}>{this.props.user.email}</Text>
+            <TextInputMask
+              value={this.props.user.cpf}
+              underlineColorAndroid="transparent"
+              mask="[000].[000].[000]-[00]"
+              editable={false}
+              selectTextOnFocus={false}
+              style={pageStyles.subtitle}
+            />
           </View>
           <Button title="Sair" onPress={this.logout} />
         </View>
@@ -62,3 +72,13 @@ export default class UserProfile extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  const { user } = state;
+
+  return {
+    user,
+  };
+};
+
+export default connect(mapStateToProps)(UserProfile);

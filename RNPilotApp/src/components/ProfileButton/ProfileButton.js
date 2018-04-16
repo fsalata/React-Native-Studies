@@ -1,45 +1,19 @@
 import React, { Component } from 'react';
-import { View, AsyncStorage } from 'react-native';
+import { View } from 'react-native';
 import { withNavigation } from 'react-navigation';
+import { connect } from 'react-redux';
 
 import { Avatar } from '../Avatar';
 
 import styles from './styles';
 
 class ProfileButton extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      user: null,
-    };
-  }
-
-  componentDidMount() {
-    this.getUser();
-  }
-
-  getUser = async () => {
-    try {
-      const usersList = await AsyncStorage.getItem('LoggedUser');
-      const user = JSON.parse(usersList);
-
-      if (user !== null && user !== '') {
-        this.setState({
-          user,
-        });
-      }
-    } catch (error) {
-      alert(error);
-    }
-  };
-
   render() {
     return (
       <View style={styles.container}>
         <Avatar
           style={styles.button}
-          userAvatar={this.state.user ? this.state.user.userPhoto : ''}
+          userAvatar={this.props.user ? this.props.user.userPhoto : ''}
           width={30}
           height={30}
           onPress={() => this.props.navigation.navigate('UserProfile')}
@@ -49,4 +23,12 @@ class ProfileButton extends Component {
   }
 }
 
-export default withNavigation(ProfileButton);
+const mapStateToProps = (state) => {
+  const { user } = state;
+
+  return {
+    user,
+  };
+};
+
+export default connect(mapStateToProps)(withNavigation(ProfileButton));

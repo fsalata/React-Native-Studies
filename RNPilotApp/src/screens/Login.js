@@ -100,11 +100,10 @@ class Login extends Component {
 
             if (user) {
               if (user.password === this.state.password) {
+                this.props.dispatch(saveLoggedUser(user));
                 AsyncStorage.setItem('LoggedUser', JSON.stringify(user));
 
-                this.props.navigation.navigate('Employees', {
-                  loggedUser: user,
-                });
+                this.props.navigation.navigate('Employees');
               } else {
                 this.setState({ passwordError: 'Senha incorreta' });
               }

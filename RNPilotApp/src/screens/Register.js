@@ -9,6 +9,8 @@ import {
 } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import ImagePicker from 'react-native-image-picker';
+import { connect } from 'react-redux';
+import { saveLoggedUser } from '../actions/user';
 
 // import { Container } from '../components/Container';
 import { Avatar } from '../components/Avatar';
@@ -153,7 +155,12 @@ class Register extends Component {
         Alert.alert(
           'Sucesso!',
           'Usuário cadastrado',
-          [{ text: 'OK', onPress: () => this.props.navigation.navigate('Employees') }],
+          [
+            {
+              text: 'OK',
+              onPress: () => this.props.navigation.navigate('Employees'),
+            },
+          ],
           { cancelable: false },
         );
       }
@@ -166,7 +173,9 @@ class Register extends Component {
       let users = usersList === null ? [] : JSON.parse(usersList);
 
       if (users.length > 0) {
-        const user = users.find(u => u.cpf.trim() === this.state.cpf.trim() || u.email.trim() === this.state.email.trim());
+        const user = users.find(u =>
+          u.cpf.trim() === this.state.cpf.trim() ||
+            u.email.trim() === this.state.email.trim());
 
         if (user) {
           Alert.alert('Atenção', 'Usuário já cadastrado');
@@ -186,6 +195,7 @@ class Register extends Component {
 
       try {
         AsyncStorage.setItem('UsersList', JSON.stringify(users));
+        this.props.dispatch(saveLoggedUser(newUser));
         AsyncStorage.setItem('LoggedUser', JSON.stringify(newUser));
       } catch (error) {
         alert(error);
@@ -229,7 +239,9 @@ class Register extends Component {
             <CustomInput
               floatingLabel="Nome"
               textValue={this.state.name}
-              onChangeText={text => this.setState({ name: text, nameError: '' })}
+              onChangeText={text =>
+                this.setState({ name: text, nameError: '' })
+              }
               extraMarginTop={20}
               errorMessage={this.state.nameError}
             />
@@ -245,7 +257,9 @@ class Register extends Component {
             <CustomInput
               floatingLabel="Senha"
               textValue={this.state.password}
-              onChangeText={text => this.setState({ password: text, passwordError: '' })}
+              onChangeText={text =>
+                this.setState({ password: text, passwordError: '' })
+              }
               extraMarginTop={20}
               isSecure
               errorMessage={this.state.passwordError}
@@ -255,7 +269,10 @@ class Register extends Component {
               textValue={this.state.passwordConfirmation}
               isSecure
               onChangeText={text =>
-                this.setState({ passwordConfirmation: text, passwordConfirmationError: '' })
+                this.setState({
+                  passwordConfirmation: text,
+                  passwordConfirmationError: '',
+                })
               }
               extraMarginTop={20}
               errorMessage={this.state.passwordConfirmationError}
@@ -282,4 +299,4 @@ class Register extends Component {
   }
 }
 
-export default Register;
+export default connect()(Register);

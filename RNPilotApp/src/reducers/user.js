@@ -1,4 +1,4 @@
-import { SAVE_LOGGED_USER } from '../actions/user';
+import { SAVE_LOGGED_USER, LOGGOUT_USER } from '../actions/user';
 
 const initalState = {
   user: null,
@@ -7,9 +7,9 @@ const initalState = {
 export default (state = initalState, action) => {
   switch (action.type) {
     case SAVE_LOGGED_USER:
-      return {
-        user: action.user,
-      };
+      return { ...action.user };
+    case LOGGOUT_USER:
+      return null;
     default:
       return state;
   }
