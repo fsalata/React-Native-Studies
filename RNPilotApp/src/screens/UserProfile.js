@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { View, Text, AsyncStorage, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
-import { loggoutUser } from '../actions/user';
 import TextInputMask from 'react-native-text-input-mask';
 
+import { loggoutUser } from '../actions/user';
 import { Container } from '../components/Container';
 import { Avatar } from '../components/Avatar';
 import { Button } from '../components/Button';
