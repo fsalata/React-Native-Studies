@@ -32,6 +32,14 @@
         "source": "/Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/layout/abc_action_mode_bar.xml"
     },
     {
+        "merged": "/Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/res/merged/debug/layout/amu_webview.xml",
+        "source": "/Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.google.maps.android/android-maps-utils/0.5/res/layout/amu_webview.xml"
+    },
+    {
+        "merged": "/Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/res/merged/debug/layout/amu_text_bubble.xml",
+        "source": "/Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.google.maps.android/android-maps-utils/0.5/res/layout/amu_text_bubble.xml"
+    },
+    {
         "merged": "/Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/res/merged/debug/layout/abc_list_menu_item_layout.xml",
         "source": "/Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/layout/abc_list_menu_item_layout.xml"
     },
@@ -100,16 +108,16 @@
         "source": "/Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.54.0/res/layout/redbox_item_title.xml"
     },
     {
-        "merged": "/Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/res/merged/debug/layout/notification_media_action.xml",
-        "source": "/Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/layout/notification_media_action.xml"
-    },
-    {
         "merged": "/Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/res/merged/debug/layout/notification_template_lines.xml",
         "source": "/Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/layout/notification_template_lines.xml"
     },
     {
         "merged": "/Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/res/merged/debug/layout/abc_action_bar_title_item.xml",
         "source": "/Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/layout/abc_action_bar_title_item.xml"
+    },
+    {
+        "merged": "/Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/res/merged/debug/layout/notification_media_action.xml",
+        "source": "/Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/layout/notification_media_action.xml"
     },
     {
         "merged": "/Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/res/merged/debug/layout/abc_action_bar_view_list_nav_layout.xml",
@@ -132,6 +140,10 @@
         "source": "/Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/layout/support_simple_spinner_dropdown_item.xml"
     },
     {
+        "merged": "/Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/res/merged/debug/layout/amu_info_window.xml",
+        "source": "/Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.google.maps.android/android-maps-utils/0.5/res/layout/amu_info_window.xml"
+    },
+    {
         "merged": "/Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/res/merged/debug/layout/abc_list_menu_item_checkbox.xml",
         "source": "/Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/layout/abc_list_menu_item_checkbox.xml"
     },
@@ -144,12 +156,12 @@
         "source": "/Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/layout/abc_screen_simple_overlay_action_mode.xml"
     },
     {
-        "merged": "/Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/res/merged/debug/layout/abc_action_mode_close_item_material.xml",
-        "source": "/Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/layout/abc_action_mode_close_item_material.xml"
-    },
-    {
         "merged": "/Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/res/merged/debug/layout/select_dialog_multichoice_material.xml",
         "source": "/Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/layout/select_dialog_multichoice_material.xml"
+    },
+    {
+        "merged": "/Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/res/merged/debug/layout/abc_action_mode_close_item_material.xml",
+        "source": "/Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/layout/abc_action_mode_close_item_material.xml"
     },
     {
         "merged": "/Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/res/merged/debug/layout/notification_media_cancel_action.xml",

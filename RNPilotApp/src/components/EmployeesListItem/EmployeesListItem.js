@@ -1,11 +1,14 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
+import MapView, { Marker } from 'react-native-maps';
 
 import styles from './styles';
 
 const EmployeesListItem = ({
   name,
   username,
+  latitude,
+  longitude,
   onMapPress,
   onToDoPress,
   onPostsPress,
@@ -13,7 +16,31 @@ const EmployeesListItem = ({
 }) => (
   <View style={styles.container}>
     <TouchableOpacity onPress={onMapPress}>
-      <View style={styles.map} />
+      <MapView
+        initialRegion={{
+          latitude: parseFloat(latitude),
+          longitude: parseFloat(longitude),
+          latitudeDelta: 1,
+          longitudeDelta: 1,
+        }}
+        liteMode
+        zoomEnabled={false}
+        zoomControlEnabled={false}
+        rotateEnabled={false}
+        scrollEnabled={false}
+        pitchEnabled={false}
+        toolbarEnabled={false}
+        style={styles.map}
+      >
+        <Marker
+          coordinate={{
+            latitude: parseFloat(latitude),
+            longitude: parseFloat(longitude),
+          }}
+          title={username}
+          description={name}
+        />
+      </MapView>
     </TouchableOpacity>
 
     <View>

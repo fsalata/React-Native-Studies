@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/src/main/AndroidManifest.xml:1:1-28:12
+ADDED from /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/src/main/AndroidManifest.xml:1:1-31:12
 	package
 		ADDED from /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/src/main/AndroidManifest.xml:2:5-29
 		INJECTED from /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/src/main/AndroidManifest.xml
@@ -15,6 +15,8 @@ ADDED from /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/a
 		INJECTED from /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/src/main/AndroidManifest.xml
 uses-permission#android.permission.INTERNET
 ADDED from /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/src/main/AndroidManifest.xml:4:5-67
+MERGED from [RNPilotApp:react-native-maps:unspecified] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/RNPilotApp/react-native-maps/unspecified/AndroidManifest.xml:9:5-67
+MERGED from [com.google.android.gms:play-services-maps:10.2.4] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.2.4/AndroidManifest.xml:20:5-66
 	android:name
 		ADDED from /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/src/main/AndroidManifest.xml:4:22-64
 uses-permission#android.permission.SYSTEM_ALERT_WINDOW
@@ -31,11 +33,16 @@ ADDED from /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/a
 	android:name
 		ADDED from /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/src/main/AndroidManifest.xml:7:22-78
 application
-ADDED from /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/src/main/AndroidManifest.xml:9:5-26:19
+ADDED from /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/src/main/AndroidManifest.xml:9:5-29:19
 MERGED from [RNPilotApp:react-native-image-picker:unspecified] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/RNPilotApp/react-native-image-picker/unspecified/AndroidManifest.xml:11:5-21:19
+MERGED from [com.google.android.gms:play-services-maps:10.2.4] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.2.4/AndroidManifest.xml:24:5-19
+MERGED from [com.google.android.gms:play-services-base:10.2.4] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.4/AndroidManifest.xml:18:5-20:19
+MERGED from [com.google.android.gms:play-services-tasks:10.2.4] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/10.2.4/AndroidManifest.xml:4:5-19
+MERGED from [com.google.android.gms:play-services-basement:10.2.4] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.2.4/AndroidManifest.xml:19:5-21:19
+MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.google.maps.android/android-maps-utils/0.5/AndroidManifest.xml:7:5-11:19
 MERGED from [com.facebook.react:react-native:0.54.0] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.54.0/AndroidManifest.xml:13:5-20
 MERGED from [com.android.support:appcompat-v7:23.0.1] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:support-v4:23.0.1] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:24.0.0] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/AndroidManifest.xml:25:5-20
 MERGED from [com.facebook.soloader:soloader:0.1.0] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.facebook.soloader/soloader/0.1.0/AndroidManifest.xml:3:3-17
 MERGED from [org.webkit:android-jsc:r174650] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/org.webkit/android-jsc/r174650/AndroidManifest.xml:2:3-17
 	android:label
@@ -72,15 +79,27 @@ activity#com.facebook.react.devsupport.DevSettingsActivity
 ADDED from /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/src/main/AndroidManifest.xml:25:7-84
 	android:name
 		ADDED from /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/src/main/AndroidManifest.xml:25:17-81
+meta-data#com.google.android.geo.API_KEY
+ADDED from /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/src/main/AndroidManifest.xml:26:7-28:64
+	android:value
+		ADDED from /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/src/main/AndroidManifest.xml:28:7-62
+	android:name
+		ADDED from /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/src/main/AndroidManifest.xml:27:7-52
 uses-sdk
 INJECTED from /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [RNPilotApp:react-native-vector-icons:unspecified] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/RNPilotApp/react-native-vector-icons/unspecified/AndroidManifest.xml:7:5-9:41
 MERGED from [RNPilotApp:react-native-text-input-mask:unspecified] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/RNPilotApp/react-native-text-input-mask/unspecified/AndroidManifest.xml:7:5-9:41
 MERGED from [com.redmadrobot:inputmask:2.3.0] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.redmadrobot/inputmask/2.3.0/AndroidManifest.xml:7:5-9:41
 MERGED from [RNPilotApp:react-native-image-picker:unspecified] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/RNPilotApp/react-native-image-picker/unspecified/AndroidManifest.xml:7:5-9:41
+MERGED from [RNPilotApp:react-native-maps:unspecified] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/RNPilotApp/react-native-maps/unspecified/AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.android.gms:play-services-maps:10.2.4] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.2.4/AndroidManifest.xml:23:5-43
+MERGED from [com.google.android.gms:play-services-base:10.2.4] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.4/AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-tasks:10.2.4] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/10.2.4/AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-basement:10.2.4] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.2.4/AndroidManifest.xml:17:5-43
+MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.google.maps.android/android-maps-utils/0.5/AndroidManifest.xml:5:5-43
 MERGED from [com.facebook.react:react-native:0.54.0] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.54.0/AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:appcompat-v7:23.0.1] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:support-v4:23.0.1] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:24.0.0] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/AndroidManifest.xml:21:5-23:54
 MERGED from [com.facebook.fbui.textlayoutbuilder:textlayoutbuilder:1.0.0] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.facebook.fbui.textlayoutbuilder/textlayoutbuilder/1.0.0/AndroidManifest.xml:14:5-16:41
 MERGED from [com.facebook.fresco:fresco:1.3.0] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fresco/1.3.0/AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:drawee:1.3.0] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.facebook.fresco/drawee/1.3.0/AndroidManifest.xml:5:5-7:41
@@ -89,6 +108,8 @@ MERGED from [com.facebook.fresco:imagepipeline:1.3.0] /Users/bin/Documents/GitHu
 MERGED from [com.facebook.fresco:imagepipeline-base:1.3.0] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-base/1.3.0/AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:fbcore:1.3.0] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fbcore/1.3.0/AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.soloader:soloader:0.1.0] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.facebook.soloader/soloader/0.1.0/AndroidManifest.xml:2:3-70
+	tools:overrideLibrary
+		ADDED from [com.android.support:support-v4:24.0.0] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/AndroidManifest.xml:23:9-51
 	android:targetSdkVersion
 		INJECTED from /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/src/main/AndroidManifest.xml
@@ -111,7 +132,36 @@ ADDED from [RNPilotApp:react-native-image-picker:unspecified] /Users/bin/Documen
 		ADDED from [RNPilotApp:react-native-image-picker:unspecified] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/RNPilotApp/react-native-image-picker/unspecified/AndroidManifest.xml:19:17-55
 	android:name
 		ADDED from [RNPilotApp:react-native-image-picker:unspecified] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/RNPilotApp/react-native-image-picker/unspecified/AndroidManifest.xml:18:17-67
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from [RNPilotApp:react-native-maps:unspecified] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/RNPilotApp/react-native-maps/unspecified/AndroidManifest.xml:10:5-81
+	android:name
+		ADDED from [RNPilotApp:react-native-maps:unspecified] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/RNPilotApp/react-native-maps/unspecified/AndroidManifest.xml:10:22-78
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [com.google.android.gms:play-services-maps:10.2.4] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.2.4/AndroidManifest.xml:19:5-78
+	android:name
+		ADDED from [com.google.android.gms:play-services-maps:10.2.4] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.2.4/AndroidManifest.xml:19:22-76
+uses-feature#0x00020000
+ADDED from [com.google.android.gms:play-services-maps:10.2.4] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.2.4/AndroidManifest.xml:21:5-77
+	android:glEsVersion
+		ADDED from [com.google.android.gms:play-services-maps:10.2.4] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.2.4/AndroidManifest.xml:21:19-51
+	android:required
+		ADDED from [com.google.android.gms:play-services-maps:10.2.4] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.2.4/AndroidManifest.xml:21:52-75
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:10.2.4] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.4/AndroidManifest.xml:19:9-172
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:10.2.4] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.4/AndroidManifest.xml:19:146-170
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:10.2.4] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.4/AndroidManifest.xml:19:86-145
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:10.2.4] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.4/AndroidManifest.xml:19:19-85
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:10.2.4] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.2.4/AndroidManifest.xml:20:9-121
+MERGED from [com.google.maps.android:android-maps-utils:0.5] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.google.maps.android/android-maps-utils/0.5/AndroidManifest.xml:8:9-10:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:10.2.4] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.2.4/AndroidManifest.xml:20:66-119
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:10.2.4] /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.2.4/AndroidManifest.xml:20:20-65
 android:uses-permission#android.permission.READ_PHONE_STATE
-IMPLIED from /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/src/main/AndroidManifest.xml:1:1-28:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
+IMPLIED from /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/src/main/AndroidManifest.xml:1:1-31:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
 android:uses-permission#android.permission.READ_EXTERNAL_STORAGE
-IMPLIED from /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/src/main/AndroidManifest.xml:1:1-28:12 reason: org.webkit.android_jsc requested WRITE_EXTERNAL_STORAGE
+IMPLIED from /Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/android/app/src/main/AndroidManifest.xml:1:1-31:12 reason: org.webkit.android_jsc requested WRITE_EXTERNAL_STORAGE

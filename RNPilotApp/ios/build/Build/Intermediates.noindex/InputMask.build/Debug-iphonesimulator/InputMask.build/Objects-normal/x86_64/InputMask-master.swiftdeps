@@ -1,6 +1,6 @@
 version: "Apple Swift version 4.1 (swiftlang-902.0.48 clang-902.0.37.1)"
 options: "b678a1a7aecf68b62167b80f8c3e11df"
-build_time: [1523283904, 161625000]
+build_time: [1523902834, 521094000]
 inputs:
   "/Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/node_modules/react-native-text-input-mask/ios/RNTextInputMask/InputMask/InputMask/Classes/RNMask.swift": [1519622872, 0]
   "/Users/bin/Documents/GitHub/React-Native-Studies/RNPilotApp/node_modules/react-native-text-input-mask/ios/RNTextInputMask/InputMask/InputMask/Classes/Model/State/ValueState.swift": [1519622872, 0]

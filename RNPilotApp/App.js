@@ -6,6 +6,9 @@ import store from './src/config/store';
 
 import Navigator from './src/navigation/routes';
 
+const API_KEY_IOS = 'AIzaSyDZyIwdiDykFZaEU7VJG2dp5xuABoSY0iw';
+const API_KEY_ANDROID = 'AIzaSyD1qXkkL6uAKwCV3rusGcxdTKDALV91mZQ';
+
 EStyleSheet.build({
   // $mainContainerMargin: {
   //   paddingTop: 40,

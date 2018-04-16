@@ -84,6 +84,8 @@ class Employees extends Component {
             <EmployeesListItem
               name={user.item.name}
               username={user.item.username}
+              latitude={user.item.address.geo.lat}
+              longitude={user.item.address.geo.lng}
               onMapPress={() =>
                 this.handleMapPress(
                   user.item.address.geo.lat,
