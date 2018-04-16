@@ -29,14 +29,18 @@ class UserProfile extends Component {
   logout = async () => {
     try {
       await AsyncStorage.removeItem('LoggedUser');
-      this.props.dispatch(loggoutUser());
       this.props.navigation.navigate('Login');
+      this.props.dispatch(loggoutUser());
     } catch (error) {
       alert(error);
     }
   };
 
   render() {
+    const photoURI = this.props.user.userPhotoURI
+      ? { uri: this.props.user.userPhotoURI }
+      : '';
+
     return (
       <Container>
         <View style={styles.screen}>
@@ -48,7 +52,7 @@ class UserProfile extends Component {
             }}
           >
             <Avatar
-              userAvatar={this.props.user ? this.props.user.userPhoto : ''}
+              userAvatar={photoURI}
               touchDisabled
               width={80}
               height={80}

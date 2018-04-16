@@ -9,11 +9,15 @@ import styles from './styles';
 
 class ProfileButton extends Component {
   render() {
+    const photoURI = this.props.user.userPhotoURI
+      ? { uri: this.props.user.userPhotoURI }
+      : '';
+
     return (
       <View style={styles.container}>
         <Avatar
           style={styles.button}
-          userAvatar={this.props.user ? this.props.user.userPhoto : ''}
+          userAvatar={photoURI}
           width={30}
           height={30}
           onPress={() => this.props.navigation.navigate('UserProfile')}

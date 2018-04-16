@@ -6,6 +6,7 @@ import {
   ScrollView,
   AsyncStorage,
   Alert,
+  ImageStore,
 } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import ImagePicker from 'react-native-image-picker';
@@ -25,7 +26,7 @@ class Register extends Component {
     super(props);
 
     this.state = {
-      userPhoto: '',
+      userPhotoURI: null,
       name: '',
       email: '',
       password: '',
@@ -56,11 +57,22 @@ class Register extends Component {
       } else if (response.error) {
         // console.log('ImagePicker Error: ', response.error);
       } else {
-        const source = { uri: `data:image/jpeg;base64,${response.data}` };
+        ImageStore.removeImageForTag(this.state.photoURI);
 
-        this.setState({
-          userPhoto: source,
-        });
+        ImageStore.addImageFromBase64(
+          response.data,
+          (uri) => {
+            this.setState({
+              userPhotoURI: uri,
+            });
+          },
+          (error) => {
+            alert(error);
+            this.setState({
+              userPhotoURI: null,
+            });
+          },
+        );
       }
     });
   };
@@ -188,7 +200,7 @@ class Register extends Component {
         email: this.state.email,
         password: this.state.password,
         cpf: this.state.cpf,
-        userPhoto: this.state.userPhoto,
+        userPhotoURI: this.state.userPhotoURI,
       };
 
       users = [...users, newUser];
@@ -210,6 +222,10 @@ class Register extends Component {
   };
 
   render() {
+    const photoURI = this.state.userPhotoURI
+      ? { uri: this.state.userPhotoURI }
+      : '';
+
     return (
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : null}
@@ -224,7 +240,7 @@ class Register extends Component {
             }}
           >
             <Avatar
-              userAvatar={this.state.userPhoto}
+              userAvatar={photoURI}
               onPress={this.userPhotoHandler}
               width={80}
               height={80}
