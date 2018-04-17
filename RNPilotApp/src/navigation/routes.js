@@ -11,7 +11,8 @@ import PostDetail from '../screens/PostDetail';
 import AlbumPhotos from '../screens/AlbumPhotos';
 import UserProfile from '../screens/UserProfile';
 
-import { ProfileButton } from '../components/ProfileButton';
+// import { ProfileButton } from '../components/ProfileButton';
+import { RightNavbarButtons } from '../components/RightNavbarButtons';
 
 const LoginStack = StackNavigator({
   Login: {
@@ -36,7 +37,7 @@ const EmployeesStack = StackNavigator({
     navigationOptions: {
       headerTitle: 'Funcionários',
       headerBackTitle: ' ',
-      headerRight: <ProfileButton />,
+      headerRight: <RightNavbarButtons />,
     },
   },
   ToDos: {
@@ -44,7 +45,7 @@ const EmployeesStack = StackNavigator({
     navigationOptions: {
       headerTitle: 'To Dos',
       headerBackTitle: ' ',
-      headerRight: <ProfileButton />,
+      headerRight: <RightNavbarButtons />,
     },
   },
   Albums: {
@@ -52,7 +53,7 @@ const EmployeesStack = StackNavigator({
     navigationOptions: {
       headerTitle: 'Álbuns',
       headerBackTitle: ' ',
-      headerRight: <ProfileButton />,
+      headerRight: <RightNavbarButtons />,
     },
   },
   AlbumPhotos: {
@@ -60,7 +61,7 @@ const EmployeesStack = StackNavigator({
     navigationOptions: {
       headerTitle: 'Fotos',
       headerBackTitle: ' ',
-      headerRight: <ProfileButton />,
+      headerRight: <RightNavbarButtons />,
     },
   },
   Posts: {
@@ -68,7 +69,7 @@ const EmployeesStack = StackNavigator({
     navigationOptions: {
       headerTitle: 'Posts',
       headerBackTitle: ' ',
-      headerRight: <ProfileButton />,
+      headerRight: <RightNavbarButtons />,
     },
   },
   PostDetail: {
@@ -76,7 +77,7 @@ const EmployeesStack = StackNavigator({
     navigationOptions: {
       headerTitle: 'Comentários',
       headerBackTitle: ' ',
-      headerRight: <ProfileButton />,
+      headerRight: <RightNavbarButtons />,
     },
   },
   UserProfile: {
