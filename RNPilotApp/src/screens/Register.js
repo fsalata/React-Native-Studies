@@ -27,6 +27,7 @@ class Register extends Component {
     super(props);
 
     this.state = {
+      userPhoto: '',
       userPhotoURI: null,
       name: '',
       email: '',
@@ -59,18 +60,22 @@ class Register extends Component {
       } else if (response.error) {
         // console.log('ImagePicker Error: ', response.error);
       } else {
-        ImageStore.removeImageForTag(this.state.photoURI);
+        if (this.state.photoURI) {
+          ImageStore.removeImageForTag(this.state.photoURI);
+        }
 
         ImageStore.addImageFromBase64(
           response.data,
           (uri) => {
             this.setState({
+              userPhoto: response.data,
               userPhotoURI: uri,
             });
           },
           (error) => {
             alert(error);
             this.setState({
+              userPhoto: null,
               userPhotoURI: null,
             });
           },
@@ -166,6 +171,7 @@ class Register extends Component {
 
     if (isValid === true) {
       this.setState({ isLoading: true });
+
       if (await this.saveUser()) {
         Alert.alert(
           'Sucesso!',
@@ -180,7 +186,6 @@ class Register extends Component {
         );
       }
     }
-    this.setState({ isLoading: false });
   };
 
   saveUser = async () => {
@@ -204,6 +209,7 @@ class Register extends Component {
         email: this.state.email,
         password: this.state.password,
         cpf: this.state.cpf,
+        userPhoto: this.state.userPhoto,
         userPhotoURI: this.state.userPhotoURI,
       };
 

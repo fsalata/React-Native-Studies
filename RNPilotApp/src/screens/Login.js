@@ -5,6 +5,7 @@ import {
   AsyncStorage,
   KeyboardAvoidingView,
   Alert,
+  ImageStore,
 } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import { connect } from 'react-redux';
@@ -44,6 +45,19 @@ class Login extends Component {
       const user = JSON.parse(usersList);
 
       if (user !== null && user !== '') {
+        if (user.userPhoto !== '') {
+          await ImageStore.addImageFromBase64(
+            user.userPhoto,
+            (uri) => {
+              user.userPhotoURI = uri;
+            },
+            (error) => {
+              alert(error);
+              user.userPhotoURI = null;
+            },
+          );
+        }
+
         this.props.dispatch(saveLoggedUser(user));
         this.props.navigation.navigate('Employees');
       }
@@ -80,6 +94,10 @@ class Login extends Component {
   };
 
   LoginHandle = async () => {
+    this.setState({
+      isLoading: true,
+    });
+
     if (this.state.email.trim() === '' || this.state.password.trim() === '') {
       if (this.state.email.trim() === '') {
         this.setState({ emailError: 'O campo e-mail não pode ser vazio.' });
@@ -100,24 +118,49 @@ class Login extends Component {
 
             if (user) {
               if (user.password === this.state.password) {
+                if (user.userPhoto !== '') {
+                  await ImageStore.addImageFromBase64(
+                    user.userPhoto,
+                    (uri) => {
+                      user.userPhotoURI = uri;
+                    },
+                    (error) => {
+                      alert(error);
+                      user.userPhotoURI = null;
+                    },
+                  );
+                }
+
                 this.props.dispatch(saveLoggedUser(user));
                 AsyncStorage.setItem('LoggedUser', JSON.stringify(user));
 
                 this.props.navigation.navigate('Employees');
               } else {
-                this.setState({ passwordError: 'Senha incorreta' });
+                this.setState({
+                  passwordError: 'Senha incorreta',
+                  isLoading: false,
+                });
               }
             } else {
+              this.setState({
+                isLoading: false,
+              });
               Alert.alert('Atenção', 'Usuário não encontrado');
             }
           } else {
+            this.setState({
+              isLoading: false,
+            });
             Alert.alert('Atenção', 'Usuário não encontrado');
           }
         } catch (error) {
+          this.setState({
+            isLoading: false,
+          });
           alert(error);
         }
       } else {
-        this.setState({ emailError: 'Email inválido' });
+        this.setState({ emailError: 'Email inválido', isLoading: false });
       }
     }
   };

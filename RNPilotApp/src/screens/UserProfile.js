@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, AsyncStorage, StyleSheet } from 'react-native';
+import { View, Text, AsyncStorage, StyleSheet, ImageStore } from 'react-native';
 import { connect } from 'react-redux';
 import TextInputMask from 'react-native-text-input-mask';
 
@@ -30,6 +30,9 @@ class UserProfile extends Component {
     try {
       await AsyncStorage.removeItem('LoggedUser');
       this.props.navigation.navigate('Login');
+      if (this.props.user.userPhotoURI) {
+        ImageStore.removeImageForTag(this.props.user.userPhotoURI);
+      }
       this.props.dispatch(loggoutUser());
     } catch (error) {
       alert(error);
