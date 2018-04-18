@@ -37,8 +37,8 @@
 		2D16E6881FA4F8E400B85C8A /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D16E6891FA4F8E400B85C8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* RNPilotAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* RNPilotAppTests.m */; };
 		330B15A41C2F435ABFA1343F /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 63A90F2169A548AB8CD7319D /* Foundation.ttf */; };
-		341A07AD207BB0120014B7AA /* InputMask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 341A07AC207BB0120014B7AA /* InputMask.framework */; };
-		341A07AE207BB0120014B7AA /* InputMask.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 341A07AC207BB0120014B7AA /* InputMask.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		34E0050F20876D260086F96E /* InputMask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34E0050E20876D260086F96E /* InputMask.framework */; };
+		34E0051020876D260086F96E /* InputMask.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 34E0050E20876D260086F96E /* InputMask.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4A0BD0E0CFF04D2DB7F7EEBA /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E3131B7A16A4A6BA11352B9 /* libRNImagePicker.a */; };
 		4A9C3A28AB0C4F9FA6CF5D09 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A8E3E369B517426B88FE2C8B /* Ionicons.ttf */; };
 		554D42DCDB484CBDA227C109 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65A45FFF27D74FAB9FD22D43 /* Octicons.ttf */; };
@@ -354,13 +354,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		341A07AF207BB0130014B7AA /* Embed Frameworks */ = {
+		34E0050D2087666B0086F96E /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				341A07AE207BB0120014B7AA /* InputMask.framework in Embed Frameworks */,
+				34E0051020876D260086F96E /* InputMask.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -392,7 +392,7 @@
 		2D02E4901E0B4A5D006451C7 /* RNPilotApp-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RNPilotApp-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		331DF5BAC7FA42958078BD8D /* RNImagePicker.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNImagePicker.xcodeproj; path = "../node_modules/react-native-image-picker/ios/RNImagePicker.xcodeproj"; sourceTree = "<group>"; };
-		341A07AC207BB0120014B7AA /* InputMask.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = InputMask.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		34E0050E20876D260086F96E /* InputMask.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = InputMask.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AAF3F3ED6364F2EA4D6ACAE /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
 		57E09E7C80794CD8B2D752C9 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
@@ -441,7 +441,7 @@
 				00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */,
 				139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */,
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
-				341A07AD207BB0120014B7AA /* InputMask.framework in Frameworks */,
+				34E0050F20876D260086F96E /* InputMask.framework in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				878DD5FAC0D041328412DA19 /* libRNVectorIcons.a in Frameworks */,
@@ -687,7 +687,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				341A07AC207BB0120014B7AA /* InputMask.framework */,
+				34E0050E20876D260086F96E /* InputMask.framework */,
 				13B07FAE1A68108700A75B9A /* RNPilotApp */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* RNPilotAppTests */,
@@ -779,9 +779,10 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				341A07AF207BB0130014B7AA /* Embed Frameworks */,
 				F9DFB0487D8324B8E1288EC8 /* [CP] Embed Pods Frameworks */,
 				BEB57D8F14BA862BD2C258E4 /* [CP] Copy Pods Resources */,
+				34E004C1208679180086F96E /* ShellScript */,
+				34E0050D2087666B0086F96E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1294,6 +1295,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+		};
+		34E004C1208679180086F96E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd \"${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\"\nif [[ -d \"Frameworks\" ]]; then\nrm -fr Frameworks\nfi";
 		};
 		8611EFD7BD445C7AD6933130 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
