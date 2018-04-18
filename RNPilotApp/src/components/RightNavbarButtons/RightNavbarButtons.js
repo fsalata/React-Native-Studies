@@ -8,9 +8,11 @@ import styles from './styles';
 
 export default class RightNavbarButtons extends Component {
   render() {
+    const { showSearchButton = true } = this.props;
+
     return (
       <View style={styles.container}>
-        <SearchButtonNavbar />
+        {showSearchButton ? <SearchButtonNavbar /> : null}
         <ProfileButton />
       </View>
     );

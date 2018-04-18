@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { FlatList } from 'react-native';
 import openMap from 'react-native-open-maps';
+import { connect } from 'react-redux';
+
+import { hideSearch } from '../actions/search';
 
 import { Container } from '../components/Container';
 import { CustomSearch } from '../components/CustomSearch';
@@ -22,6 +25,8 @@ class Employees extends Component {
   }
 
   componentDidMount() {
+    this.props.dispatch(hideSearch());
+
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(response => response.json())
       .then(responseJson =>
@@ -109,4 +114,4 @@ class Employees extends Component {
   }
 }
 
-export default Employees;
+export default connect()(Employees);

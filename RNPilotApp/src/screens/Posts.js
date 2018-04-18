@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { FlatList } from 'react-native';
+import { connect } from 'react-redux';
+
+import { hideSearch } from '../actions/search';
 
 import { Container } from '../components/Container';
 import { Loading } from '../components/Loading';
@@ -24,6 +27,8 @@ class Posts extends Component {
 
   componentDidMount() {
     const { userID } = this.props.navigation.state.params;
+
+    this.props.dispatch(hideSearch());
 
     fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userID}`)
       .then(response => response.json())
@@ -88,4 +93,4 @@ class Posts extends Component {
   }
 }
 
-export default Posts;
+export default connect()(Posts);

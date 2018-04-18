@@ -53,7 +53,7 @@ const EmployeesStack = StackNavigator({
     navigationOptions: {
       headerTitle: 'Álbuns',
       headerBackTitle: ' ',
-      headerRight: <RightNavbarButtons />,
+      headerRight: <RightNavbarButtons showSearchButton={false} />,
     },
   },
   AlbumPhotos: {
@@ -61,7 +61,7 @@ const EmployeesStack = StackNavigator({
     navigationOptions: {
       headerTitle: 'Fotos',
       headerBackTitle: ' ',
-      headerRight: <RightNavbarButtons />,
+      headerRight: <RightNavbarButtons showSearchButton={false} />,
     },
   },
   Posts: {

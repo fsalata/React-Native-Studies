@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { FlatList } from 'react-native';
+import { connect } from 'react-redux';
+
+import { hideSearch } from '../actions/search';
 
 import { Container } from '../components/Container';
 import { Loading } from '../components/Loading';
@@ -36,6 +39,8 @@ class PostDetail extends Component {
       .catch((error) => {
         alert(error);
       });
+
+    this.props.dispatch(hideSearch());
   }
 
   searchTextClear = () => {
@@ -80,4 +85,4 @@ class PostDetail extends Component {
   }
 }
 
-export default PostDetail;
+export default connect()(PostDetail);
