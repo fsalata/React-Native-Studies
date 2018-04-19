@@ -45,20 +45,8 @@ class Login extends Component {
       const user = JSON.parse(usersList);
 
       if (user !== null && user !== '') {
-        if (user.userPhoto !== '') {
-          await ImageStore.addImageFromBase64(
-            user.userPhoto,
-            (uri) => {
-              user.userPhotoURI = uri;
-            },
-            (error) => {
-              alert(error);
-              user.userPhotoURI = null;
-            },
-          );
-        }
+        await this.saveUser(user);
 
-        this.props.dispatch(saveLoggedUser(user));
         this.props.navigation.navigate('Employees');
       }
 
@@ -93,6 +81,24 @@ class Login extends Component {
     this.setState({ password: text.toLowerCase().trim(), passwordError: '' });
   };
 
+  saveUser = async (user) => {
+    if (user.userPhoto !== '') {
+      await ImageStore.addImageFromBase64(
+        user.userPhoto,
+        (uri) => {
+          user.userPhotoURI = uri;
+        },
+        (error) => {
+          alert(error);
+          user.userPhotoURI = null;
+        },
+      );
+    }
+
+    this.props.dispatch(saveLoggedUser(user));
+    await AsyncStorage.setItem('LoggedUser', JSON.stringify(user));
+  };
+
   LoginHandle = async () => {
     this.setState({
       isLoading: true,
@@ -118,21 +124,7 @@ class Login extends Component {
 
             if (user) {
               if (user.password === this.state.password) {
-                if (user.userPhoto !== '') {
-                  await ImageStore.addImageFromBase64(
-                    user.userPhoto,
-                    (uri) => {
-                      user.userPhotoURI = uri;
-                    },
-                    (error) => {
-                      alert(error);
-                      user.userPhotoURI = null;
-                    },
-                  );
-                }
-
-                this.props.dispatch(saveLoggedUser(user));
-                AsyncStorage.setItem('LoggedUser', JSON.stringify(user));
+                await this.saveUser(user);
 
                 this.props.navigation.navigate('Employees');
               } else {

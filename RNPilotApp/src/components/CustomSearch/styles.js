@@ -10,6 +10,9 @@ export default EStyleSheet.create({
     overflow: 'hidden',
   },
   search: {
-    backgroundColor: 'rgba(255, 255, 255, 0.4)',
+    backgroundColor: '#f7f7f7',
+    borderBottomWidth: 0.5,
+    borderBottomColor: '#A7A7AA',
+    borderTopWidth: 0,
   },
 });

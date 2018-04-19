@@ -5,11 +5,13 @@ import { connect } from 'react-redux';
 
 import styles from './styles';
 
+const ANIMATION_TIMING = 200;
+
 class CustomSearch extends Component {
   constructor(props) {
     super(props);
 
-    const initialHeight = new Animated.Value(0);
+    const initialHeight = new Animated.Value(-46);
 
     this.state = {
       containerHeight: initialHeight,
@@ -20,13 +22,13 @@ class CustomSearch extends Component {
     if (nextProps.showSearch !== this.props.showSearch) {
       if (nextProps.showSearch === true) {
         Animated.timing(this.state.containerHeight, {
-          toValue: 48,
-          duration: 250,
+          toValue: 0,
+          duration: ANIMATION_TIMING,
         }).start();
       } else {
         Animated.timing(this.state.containerHeight, {
-          toValue: 0,
-          duration: 250,
+          toValue: -46,
+          duration: ANIMATION_TIMING,
         }).start();
       }
     }
@@ -41,7 +43,7 @@ class CustomSearch extends Component {
 
     return (
       <Animated.View
-        style={{ height: this.state.containerHeight, overflow: 'hidden' }}
+        style={{ marginTop: this.state.containerHeight, overflow: 'hidden' }}
       >
         <SearchBar
           lightTheme

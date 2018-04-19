@@ -16,7 +16,7 @@ class SearchButtonNavbar extends Component {
     return (
       <TouchableOpacity onPress={this.handleButtonPress}>
         <View style={styles.container}>
-          <Icon name="ios-search" size={30} color="#ccc" />
+          <Icon name="ios-search" size={27} color="#ccc" />
         </View>
       </TouchableOpacity>
     );

@@ -38,6 +38,10 @@ const EmployeesStack = StackNavigator({
       headerTitle: 'Funcionários',
       headerBackTitle: ' ',
       headerRight: <RightNavbarButtons />,
+      headerStyle: {
+        borderBottomColor: 'transparent',
+        borderBottomWidth: 0,
+      },
     },
   },
   ToDos: {
@@ -46,6 +50,10 @@ const EmployeesStack = StackNavigator({
       headerTitle: 'To Dos',
       headerBackTitle: ' ',
       headerRight: <RightNavbarButtons />,
+      headerStyle: {
+        borderBottomColor: 'transparent',
+        borderBottomWidth: 0,
+      },
     },
   },
   Albums: {
@@ -70,6 +78,10 @@ const EmployeesStack = StackNavigator({
       headerTitle: 'Posts',
       headerBackTitle: ' ',
       headerRight: <RightNavbarButtons />,
+      headerStyle: {
+        borderBottomColor: 'transparent',
+        borderBottomWidth: 0,
+      },
     },
   },
   PostDetail: {
@@ -78,6 +90,10 @@ const EmployeesStack = StackNavigator({
       headerTitle: 'Comentários',
       headerBackTitle: ' ',
       headerRight: <RightNavbarButtons />,
+      headerStyle: {
+        borderBottomColor: 'transparent',
+        borderBottomWidth: 0,
+      },
     },
   },
   UserProfile: {
